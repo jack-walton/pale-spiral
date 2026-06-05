@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Jack Walton',
+			title: "Jack's Portfolio",
 			favicon: '/icons/icon.svg',
 			head: [
 				{
@@ -24,13 +24,13 @@ export default defineConfig({
 					},
 				},
 			],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/jack-walton' }],
-			components: {
-				Head: './src/components/Head.astro',
-				Search: './src/components/Search.astro',
-			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/jack-walton' },
+				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/jackspencerwalton/' },
+			],
 			sidebar: [
 				{ label: 'Introduction', slug: '' },
+				{ label: 'Oracle', slug: 'oracle' },
 				{
 					label: 'AXS Guide',
 					items: [
@@ -42,14 +42,6 @@ export default defineConfig({
 						{ label: 'Buy Tickets', slug: 'axs/buy-tickets' },
 					],
 				},
-				{
-					label: 'Prompt Engineering',
-					items: [
-						{ label: 'Overview', slug: 'ai' },
-						{ label: 'Change Log Generator', slug: 'ai/change-log' },
-					],
-				},
-				{ label: 'Music Information Retrieval in Bandcamp', slug: 'bandcamp' },
 				{ label: 'Resume', slug: 'resume' },
 				{ label: 'Change Log', slug: 'changelog' },
 			],
