@@ -7,6 +7,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Jack's Portfolio",
+			customCss: ['./src/styles/global.css'],
 			favicon: '/icons/icon.svg',
 			head: [
 				{
@@ -42,8 +43,15 @@ export default defineConfig({
 						{ label: 'Buy Tickets', slug: 'axs/buy-tickets' },
 					],
 				},
+				{ label: 'Bandcamp', slug: 'bandcamp' },
+				{
+					label: 'Prompt Engineering',
+					items: [
+						{ label: 'Overview', slug: 'ai' },
+						{ label: 'Change Log Generator', slug: 'ai/change-log' },
+					],
+				},
 				{ label: 'Resume', slug: 'resume' },
-				{ label: 'Change Log', slug: 'changelog' },
 			],
 		}),
 	],
