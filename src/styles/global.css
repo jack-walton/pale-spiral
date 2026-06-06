@@ -1,3 +1,123 @@
+/* Geist Sans — variable font, all weights */
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist-sans/Geist-Italic-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* Geist Mono — variable font, all weights */
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/fonts/geist-mono/GeistMono-Italic-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* Geist Pixel — all five variants */
+@font-face {
+	font-family: 'Geist Pixel Square';
+	src: url('/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Pixel Grid';
+	src: url('/fonts/geist-pixel/GeistPixel-Grid.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Pixel Circle';
+	src: url('/fonts/geist-pixel/GeistPixel-Circle.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Pixel Triangle';
+	src: url('/fonts/geist-pixel/GeistPixel-Triangle.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Pixel Line';
+	src: url('/fonts/geist-pixel/GeistPixel-Line.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--sl-font: 'Geist', sans-serif;
+	--sl-font-mono: 'Geist Mono', monospace;
+}
+
+/* Geist Pixel Square for the site title */
+.site-title {
+	font-family: 'Geist Pixel Square', monospace;
+	letter-spacing: 0.02em;
+}
+
+:root[data-theme='light'] {
+	/* Slate blue accent */
+	--sl-color-accent-low: hsl(213, 55%, 90%);
+	--sl-color-accent: hsl(213, 55%, 40%);
+	--sl-color-accent-high: hsl(213, 55%, 24%);
+
+	/* Warm neutral grays — light mode (1=dark, 7=light) */
+	--sl-color-gray-1: hsl(30, 10%, 14%);
+	--sl-color-gray-2: hsl(30, 6%, 24%);
+	--sl-color-gray-3: hsl(30, 4%, 44%);
+	--sl-color-gray-4: hsl(30, 4%, 62%);
+	--sl-color-gray-5: hsl(30, 7%, 84%);
+	--sl-color-gray-6: hsl(30, 8%, 92%);
+	--sl-color-gray-7: hsl(30, 5%, 97%);
+	--sl-color-black: hsl(0, 0%, 100%);
+	--sl-color-white: hsl(30, 10%, 14%);
+}
+
+:root[data-theme='dark'] {
+	/* Slate blue accent */
+	--sl-color-accent-low: hsl(213, 50%, 18%);
+	--sl-color-accent: hsl(213, 65%, 65%);
+	--sl-color-accent-high: hsl(213, 70%, 83%);
+
+	/* Warm neutral grays — dark mode (1=light, 6=dark) */
+	--sl-color-gray-1: hsl(30, 12%, 94%);
+	--sl-color-gray-2: hsl(30, 6%, 77%);
+	--sl-color-gray-3: hsl(30, 5%, 56%);
+	--sl-color-gray-4: hsl(30, 5%, 36%);
+	--sl-color-gray-5: hsl(30, 7%, 23%);
+	--sl-color-gray-6: hsl(30, 8%, 16%);
+	--sl-color-black: hsl(30, 8%, 10%);
+}
+
 .sl-markdown-content img {
 	border: 1px solid var(--sl-color-gray-5);
 	border-radius: 4px;
