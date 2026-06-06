@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: "Jack's Portfolio",
+			title: 'Jack Walton',
 			customCss: ['./src/styles/global.css'],
 			favicon: '/icons/icon.svg',
 			head: [
