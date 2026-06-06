@@ -73,7 +73,7 @@ export default defineConfig({
 						{ label: 'Buy Tickets', slug: 'axs/buy-tickets' },
 					],
 				},
-				{ label: 'Bandcamp', slug: 'bandcamp' },
+				{ label: 'Bandcamp UX', slug: 'bandcamp' },
 				{
 					label: 'Prompt Engineering',
 					items: [
