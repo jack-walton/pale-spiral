@@ -76,6 +76,7 @@
 :root {
 	--sl-font: 'Geist', sans-serif;
 	--sl-font-mono: 'Geist Mono', monospace;
+	--sl-content-width: 50rem;
 }
 
 /* Geist Pixel Square for the site title */
