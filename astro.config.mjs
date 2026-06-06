@@ -13,6 +13,36 @@ export default defineConfig({
 				{
 					tag: 'link',
 					attrs: {
+						rel: 'preload',
+						href: '/fonts/geist-sans/Geist-Variable.woff2',
+						as: 'font',
+						type: 'font/woff2',
+						crossorigin: 'anonymous',
+					},
+				},
+				{
+					tag: 'link',
+					attrs: {
+						rel: 'preload',
+						href: '/fonts/geist-mono/GeistMono-Variable.woff2',
+						as: 'font',
+						type: 'font/woff2',
+						crossorigin: 'anonymous',
+					},
+				},
+				{
+					tag: 'link',
+					attrs: {
+						rel: 'preload',
+						href: '/fonts/geist-pixel/GeistPixel-Square.woff2',
+						as: 'font',
+						type: 'font/woff2',
+						crossorigin: 'anonymous',
+					},
+				},
+				{
+					tag: 'link',
+					attrs: {
 						rel: 'apple-touch-icon',
 						href: '/icons/apple-icon.png',
 					},
