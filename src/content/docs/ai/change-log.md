@@ -29,7 +29,7 @@ title: Change Log
 - Use plain language; avoid engineering jargon
 - Present tense, active voice
 - No em-dashes
-- Omit changes that are purely internal (refactors, test updates, CI changes) unless they affect customer behavior
+- Omit changes that are purely internal (refactors, test updates, CI changes) unless they affect the user experience
 - Each item should be one sentence
 
 ## Changes
