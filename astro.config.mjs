@@ -52,6 +52,8 @@ export default defineConfig({
 					],
 				},
 				{ label: 'Resume', slug: 'resume' },
+				{ label: 'Change Log', slug: 'changelog'
+				}
 			],
 		}),
 	],
