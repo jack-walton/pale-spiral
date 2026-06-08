@@ -4,7 +4,7 @@
 	src: url('/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -12,7 +12,7 @@
 	src: url('/fonts/geist-sans/Geist-Italic-Variable.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: italic;
-	font-display: swap;
+	font-display: optional;
 }
 
 /* Geist Mono — variable font, all weights */
@@ -21,7 +21,7 @@
 	src: url('/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -29,7 +29,7 @@
 	src: url('/fonts/geist-mono/GeistMono-Italic-Variable.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: italic;
-	font-display: swap;
+	font-display: optional;
 }
 
 /* Geist Pixel — all five variants */
@@ -38,7 +38,7 @@
 	src: url('/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -46,7 +46,7 @@
 	src: url('/fonts/geist-pixel/GeistPixel-Grid.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -54,7 +54,7 @@
 	src: url('/fonts/geist-pixel/GeistPixel-Circle.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -62,7 +62,7 @@
 	src: url('/fonts/geist-pixel/GeistPixel-Triangle.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 @font-face {
@@ -70,7 +70,7 @@
 	src: url('/fonts/geist-pixel/GeistPixel-Line.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional;
 }
 
 :root {
