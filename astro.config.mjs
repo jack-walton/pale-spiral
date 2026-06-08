@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://jackwalton.xyz',
 	integrations: [
 		starlight({
 			title: 'Jack Walton',
@@ -58,6 +59,7 @@ export default defineConfig({
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/jack-walton' },
 				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/jackspencerwalton/' },
+				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/jackwalton.xyz' },
 			],
 			sidebar: [
 				{ label: 'Introduction', slug: '' },
