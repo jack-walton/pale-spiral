@@ -104,19 +104,19 @@
 }
 
 :root[data-theme='dark'] {
-	/* Slate blue accent */
-	--sl-color-accent-low: hsl(213, 50%, 18%);
-	--sl-color-accent: hsl(213, 65%, 65%);
-	--sl-color-accent-high: hsl(213, 70%, 83%);
+	/* Slate blue accent — slightly more vibrant */
+	--sl-color-accent-low: hsl(213, 55%, 16%);
+	--sl-color-accent: hsl(213, 75%, 65%);
+	--sl-color-accent-high: hsl(213, 80%, 85%);
 
-	/* Warm text, neutral mids, very slightly warm darks */
-	--sl-color-gray-1: hsl(38, 14%, 89%);    /* #e8e4dd — primary text */
-	--sl-color-gray-2: hsl(30, 7%, 70%);     /* secondary text */
-	--sl-color-gray-3: hsl(0, 0%, 53%);      /* #888 — dim text */
-	--sl-color-gray-4: hsl(0, 0%, 37%);      /* mid */
-	--sl-color-gray-5: hsl(40, 4%, 20%);     /* subtle backgrounds */
-	--sl-color-gray-6: hsl(40, 5%, 13%);     /* nav / sidebar bg */
-	--sl-color-black: hsl(60, 3%, 7%);       /* #111110 — page background */
+	/* Cooler, deeper dark palette */
+	--sl-color-gray-1: hsl(220, 5%, 91%);    /* cool off-white primary text */
+	--sl-color-gray-2: hsl(220, 3%, 68%);    /* secondary text */
+	--sl-color-gray-3: hsl(220, 3%, 50%);    /* dim text */
+	--sl-color-gray-4: hsl(220, 3%, 34%);    /* mid */
+	--sl-color-gray-5: hsl(240, 4%, 17%);    /* subtle backgrounds */
+	--sl-color-gray-6: hsl(240, 5%, 10%);    /* nav / sidebar bg */
+	--sl-color-black: hsl(240, 6%, 5%);      /* deep cool near-black background */
 }
 
 /* Text selection */
@@ -127,7 +127,7 @@
 
 :root[data-theme='dark'] ::selection {
 	color: var(--sl-color-text);
-	background-color: hsl(213, 40%, 28%);
+	background-color: hsl(213, 50%, 26%);
 }
 
 /* Content link underlines */
@@ -144,4 +144,31 @@
 .sl-markdown-content img {
 	border: 1px solid var(--sl-color-gray-5);
 	border-radius: 4px;
+}
+
+/* Subtle dot grid on the page background in dark mode */
+:root[data-theme='dark'] body {
+	background-image: radial-gradient(circle, hsla(0, 0%, 100%, 0.018) 1px, transparent 0);
+	background-size: 24px 24px;
+}
+
+/* Gradient border on aside/callout boxes in dark mode */
+:root[data-theme='dark'] .starlight-aside {
+	border: 1px solid transparent;
+	background-clip: padding-box, border-box;
+	background-origin: border-box;
+	background-image:
+		linear-gradient(var(--sl-color-gray-6), var(--sl-color-gray-6)),
+		linear-gradient(160deg, hsla(220, 40%, 80%, 0.12) 0%, hsla(220, 20%, 60%, 0.04) 50%, transparent 100%);
+}
+
+/* Gradient border on code blocks in dark mode */
+:root[data-theme='dark'] .expressive-code {
+	border: 1px solid transparent;
+	background-clip: padding-box, border-box;
+	background-origin: border-box;
+	background-image:
+		linear-gradient(var(--sl-color-gray-6), var(--sl-color-gray-6)),
+		linear-gradient(160deg, hsla(220, 40%, 80%, 0.1) 0%, hsla(220, 20%, 60%, 0.03) 50%, transparent 100%);
+	border-radius: 6px;
 }

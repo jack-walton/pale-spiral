@@ -78,7 +78,7 @@ export default defineConfig({
 				{
 					label: 'Prompt Engineering',
 					items: [
-						{ label: 'Overview', slug: 'ai' },
+						{ label: 'Prompt Engineering Overview', slug: 'ai' },
 						{ label: 'Change Log Generator', slug: 'ai/change-log' },
 					],
 				},
