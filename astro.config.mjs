@@ -66,7 +66,7 @@ export default defineConfig({
 				{
 					label: 'AXS Guide',
 					items: [
-						{ label: 'Overview of the AXS App', slug: 'axs' },
+						{ label: 'AXS Overview', slug: 'axs' },
 						{ label: 'Navigate the App', slug: 'axs/navigate-the-app' },
 						{ label: 'Create an Account', slug: 'axs/create-an-account' },
 						{ label: 'Sign In', slug: 'axs/sign-in' },
