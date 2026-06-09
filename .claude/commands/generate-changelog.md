@@ -23,7 +23,7 @@ title: Change Log
 
 - Write from the customer's perspective — focus on what changed for them, not internal implementation details
 - Use plain language; avoid engineering jargon
-- Present tense, active voice
+- Past tense, active voice
 - No em-dashes
 - Omit changes that are purely internal (refactors, test updates, CI changes) unless they affect customer behavior
 - Each item should be one sentence
