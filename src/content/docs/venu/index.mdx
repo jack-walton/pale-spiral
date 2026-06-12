@@ -1,0 +1,43 @@
+---
+title: Overview
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import landingImg from '../../../assets/images/VENU/landing/landing.png';
+
+VENU is an app prototype I designed in Figma. The app lets you search for events, purchase tickets, and sell them later if you cannot attend. You can try the prototype at [gills-crank-13926490.figma.site](https://gills-crank-13926490.figma.site/).
+
+The guide is written in a shorter, task-focused register — deliberately lighter than the enterprise documentation in the Oracle section.
+
+<Image src={landingImg} alt="The VENU landing screen" />
+
+## Guide Contents
+
+<CardGrid>
+    <LinkCard
+        title="Navigate the App"
+        href="/venu/navigate-the-app/"
+        description="Learn the layout of the VENU app and what each screen does."
+    />
+    <LinkCard
+        title="Create an Account"
+        href="/venu/create-an-account/"
+        description="Register with your email address or connect an Apple or Facebook account."
+    />
+    <LinkCard
+        title="Sign In"
+        href="/venu/sign-in/"
+        description="Sign in to an existing VENU account."
+    />
+    <LinkCard
+        title="Search for Events"
+        href="/venu/search-for-events/"
+        description="Find events by keyword, genre, or location."
+    />
+    <LinkCard
+        title="Buy Tickets"
+        href="/venu/buy-tickets/"
+        description="Select tickets, enter payment, and confirm a purchase."
+    />
+</CardGrid>

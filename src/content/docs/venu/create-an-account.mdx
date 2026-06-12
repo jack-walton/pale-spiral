@@ -1,0 +1,40 @@
+---
+title: Create an Account
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import step1Img from '../../../assets/images/VENU/create_an_account/step_1.png';
+import step2Img from '../../../assets/images/VENU/create_an_account/step_2.png';
+import step3Img from '../../../assets/images/VENU/create_an_account/step_3.png';
+import step4Img from '../../../assets/images/VENU/create_an_account/step_4.png';
+
+Complete the following steps to create a VENU account.
+
+<Steps>
+1. **Enter Your Information**
+
+   From the landing screen, select **Continue with Apple** or **Continue with Facebook** to register using an existing account. Otherwise, select **Sign Up with Email** to register with your email address.
+
+   Enter your first name, last name, email address, and a password. The password must be at least 8 characters long and contain at least one uppercase letter and one number.
+
+   Select the checkbox to confirm that you may be required to show valid ID at venues and that you agree to VENU's Terms of Use and Privacy Policy. Then select **Create Account**.
+
+   <Image src={step1Img} alt="The Your Info sign-up form with fields for first name, last name, email address, and password" />
+
+2. **Verify Your Email**
+
+   VENU sends a verification link to the email address you entered. Open your email inbox and select the link. After you have verified your email, return to the app and select **I Verified My Email — Continue**.
+
+   <Image src={step2Img} alt="The Verify Email screen instructing the user to click the link sent to their email address" />
+
+3. **Verify Your Phone Number**
+
+   Enter your phone number, then select **Send Code Via Text**.
+
+   <Image src={step3Img} alt="The Phone Verification screen with a phone number field and a Send Code Via Text button" />
+
+   Enter the six-digit code sent to your phone number, then select **Complete Sign Up**.
+
+   <Image src={step4Img} alt="The Phone Verification screen after sending a code, with a field for the six-digit code and a Complete Sign Up button" />
+</Steps>
