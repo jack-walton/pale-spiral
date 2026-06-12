@@ -1,0 +1,11 @@
+extends: existence
+message: "Avoid filler opener '%s'. Start in the content."
+level: warning
+tokens:
+  - 'This section documents'
+  - 'This section covers'
+  - 'This page documents'
+  - 'This page covers'
+  - 'The purpose of this'
+  - 'This guide covers'
+  - 'This guide documents'

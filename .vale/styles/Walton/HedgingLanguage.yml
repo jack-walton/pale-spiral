@@ -1,0 +1,10 @@
+extends: existence
+message: "Avoid hedging with '%s' in declarative statements. State it as fact or cut it."
+level: suggestion
+tokens:
+  - '\bI think\b'
+  - '\bI believe\b'
+  - '\barguably\b'
+  - '\bperhaps\b'
+  - '\bseems to\b'
+  - '\bappears to\b'

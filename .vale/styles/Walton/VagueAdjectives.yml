@@ -1,0 +1,10 @@
+extends: existence
+message: "Avoid vague adjective '%s'. Replace with a specific detail or cut it."
+level: warning
+tokens:
+  - '\bcomplex\b'
+  - '\bchallenging\b'
+  - '\binteresting\b'
+  - '\bsignificant\b'
+  - '\brobust\b'
+  - '\bcomprehensive\b'

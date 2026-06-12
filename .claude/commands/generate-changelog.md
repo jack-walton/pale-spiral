@@ -30,4 +30,6 @@ title: Change Log
 
 ## Changes
 
+After writing `changelog.mdx`, update `README.md` to reflect any structural changes to the project — new sections added, pages removed, or renamed directories. Do not rewrite sections that are still accurate.
+
 $ARGUMENTS

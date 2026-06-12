@@ -1,20 +1,28 @@
-# Starlight Starter Kit: Basics
+# Pale Spiral
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+A portfolio site built with Astro + Starlight to showcase technical writing, UX documentation, academic research, and prompt engineering.
 
-```
-pnpm create astro@latest -- --template starlight
-```
+## What’s included
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- `src/content/docs/index.mdx` — homepage and portfolio overview
+- `src/content/docs/venu/` — VENU mobile app user guide with task flows, screenshots, and navigation descriptions
+- `src/content/docs/saint-didier.mdx` — academic research on a 1902 illuminated manuscript
+- `src/content/docs/ai/` — prompt library for change logs, Vale rule generation, DITA task scaffolding, and quality assurance
+- `.vale/` — Vale prose linter with custom Walton style rules
+- `src/content/docs/resume.mdx` — resume, experience, education, and technical skills
+- `src/content/docs/changelog.mdx` — project change log for the site itself
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Project structure
 
 ```
 .
+├── .claude/
+│   └── commands/
+├── .vale/
+│   └── styles/Walton/
 ├── public/
+│   ├── icons/
+│   └── papers/
 ├── src/
 │   ├── assets/
 │   ├── content/
@@ -25,25 +33,26 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Local development
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+From the project root:
 
-Static assets, like favicons, can be placed in the `public/` directory.
+```bash
+pnpm install
+pnpm dev
+```
 
-## 🧞 Commands
+Then open the local server shown in the terminal.
 
-All commands are run from the root of the project, from a terminal:
+## Build and preview
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+```bash
+pnpm build
+pnpm preview
+```
 
-## 👀 Want to learn more?
+## Notes
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- This site uses `@astrojs/starlight` for content layout, cards, steps, and documentation components.
+- Static files and images are served from `public/` and `src/assets/`.
+- The site metadata, sidebar, social links, and custom fonts are configured in `astro.config.mjs`.
