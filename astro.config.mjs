@@ -8,6 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Jack Walton',
+			description: 'Jack Spencer Walton — writer and technical writer based in New York.',
 			customCss: ['./src/styles/global.css'],
 			favicon: '/icons/icon.svg',
 			head: [
@@ -74,7 +75,7 @@ export default defineConfig({
 						{ label: 'Buy Tickets', slug: 'axs/buy-tickets' },
 					],
 				},
-				{ label: 'Bandcamp', slug: 'bandcamp' },
+				{ label: 'Different Visions', slug: 'saint-didier' },
 				{
 					label: 'Prompt Engineering',
 					items: [
