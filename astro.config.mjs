@@ -75,7 +75,7 @@ export default defineConfig({
 						{ label: 'Buy Tickets', slug: 'venu/buy-tickets' },
 					],
 				},
-				{ label: 'Saint Didier', slug: 'saint-didier' },
+				{ label: 'St. Didier', slug: 'saint-didier' },
 				{
 					label: 'Prompt Library',
 					items: [
