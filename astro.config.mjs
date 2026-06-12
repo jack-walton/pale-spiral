@@ -8,7 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Jack Walton',
-			description: 'Jack Spencer Walton — writer and technical writer based in New York.',
+			description: 'Jack Spencer Walton',
 			customCss: ['./src/styles/global.css'],
 			favicon: '/icons/icon.svg',
 			head: [
