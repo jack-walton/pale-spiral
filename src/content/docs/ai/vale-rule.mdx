@@ -1,0 +1,27 @@
+---
+title: Vale Rule Generator
+---
+
+Generate a Vale YAML rule based on the following style requirement.
+
+## Output Format
+
+Produce a single Vale YAML file with the following fields:
+
+- `extends` — the Vale extension point (`existence`, `substitution`, `occurrence`, `repetition`, `consistency`, `conditional`, `capitalization`)
+- `message` — an actionable message shown when the rule triggers; use `%s` where the matched text should appear
+- `level` — `suggestion`, `warning`, or `error`
+- `tokens` (for `existence`) or `swap` (for `substitution`) — the list of patterns or preferred replacements
+
+## Guidelines
+
+- Use `existence` for terms to avoid outright
+- Use `substitution` for preferred alternatives
+- Prefer plain token lists over regular expressions unless the rule requires pattern matching
+- Write `message` in the imperative: "Avoid '%s'." or "Use '%s' instead of '%s'."
+- Use `level: suggestion` for style preferences, `level: warning` for consistency requirements, `level: error` for hard violations
+- Name the file in PascalCase matching the rule intent — for example, `NoEmDash.yml` or `PreferSelect.yml`
+
+## Style Requirement
+
+$ARGUMENTS

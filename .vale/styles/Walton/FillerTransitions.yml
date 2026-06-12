@@ -1,0 +1,10 @@
+extends: existence
+message: "Avoid '%s'. Restructure the sentence."
+level: suggestion
+tokens:
+  - 'Additionally,'
+  - 'Furthermore,'
+  - 'Moreover,'
+  - 'In conclusion,'
+  - 'In summary,'
+  - 'As such,'

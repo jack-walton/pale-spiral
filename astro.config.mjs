@@ -81,6 +81,9 @@ export default defineConfig({
 					items: [
 						{ label: 'Prompt Library Overview', slug: 'ai' },
 						{ label: 'Change Log Generator', slug: 'ai/change-log' },
+						{ label: 'Vale Rule Generator', slug: 'ai/vale-rule' },
+						{ label: 'DITA Task Scaffold', slug: 'ai/dita-task' },
+						{ label: 'Quality Assurance', slug: 'ai/qa' },
 					],
 				},
 				{ label: 'Resume', slug: 'resume' },

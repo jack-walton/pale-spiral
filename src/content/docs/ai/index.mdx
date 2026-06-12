@@ -4,8 +4,29 @@ title: Prompt Library
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-This section documents a structured prompt I use with Claude Code. The prompt is functional — it runs against this repository — and is included here as a portfolio artifact.
+This section documents structured prompts I use with Claude Code. Each prompt is functional and included here as a portfolio artifact.
 
-The [Change Log Generator](/ai/change-log/) analyzes the git commit history of a repository and produces a formatted, customer-facing change log. The [Change Log](/changelog/) page on this site is its output.
+All three prompts use `$ARGUMENTS` — a Claude Code placeholder replaced at runtime with whatever input you pass to the command. This makes each prompt reusable across projects without modification.
 
-The prompt uses `$ARGUMENTS` — a Claude Code placeholder replaced at runtime with whatever input you pass to the command. In this case, it receives the repository's git log, making the prompt reusable across any project without modification.
+<CardGrid>
+    <LinkCard
+        title="Change Log Generator"
+        description="Analyzes a repository's git history and produces a formatted, customer-facing change log. The Change Log page on this site is its output."
+        href="/ai/change-log/"
+    />
+    <LinkCard
+        title="Vale Rule Generator"
+        description="Converts a plain-English style requirement into a Vale YAML rule ready to drop into a project's style library."
+        href="/ai/vale-rule/"
+    />
+    <LinkCard
+        title="DITA Task Scaffold"
+        description="Generates a DITA 1.3 task topic skeleton from a procedure description, with correct element structure and placeholder attributes."
+        href="/ai/dita-task/"
+    />
+    <LinkCard
+        title="Quality Assurance"
+        description="Runs Vale, fixes all findings, then applies brand voice rules to the site's prose sections — short sentences, direct first person, no vague adjectives."
+        href="/ai/qa/"
+    />
+</CardGrid>

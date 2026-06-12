@@ -1,0 +1,5 @@
+extends: substitution
+message: "Use '%s' instead of '%s' for consistency across guides."
+level: warning
+swap:
+  click: select

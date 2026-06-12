@@ -1,0 +1,5 @@
+extends: existence
+message: "Avoid em dashes. Rewrite as two sentences or use a comma."
+level: warning
+tokens:
+  - '—'

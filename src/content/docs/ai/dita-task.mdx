@@ -1,0 +1,34 @@
+---
+title: DITA Task Scaffold
+---
+
+Generate a DITA 1.3 `<task>` topic scaffold based on the following procedure description.
+
+## Output Format
+
+Produce a complete XML document with:
+
+- XML declaration and DITA 1.3 task DOCTYPE
+- `<task>` root element with an `id` attribute derived from the title in kebab-case
+- `<title>` — an imperative phrase naming the task
+- `<shortdesc>` — one sentence describing what the task accomplishes and for whom
+- `<taskbody>` containing:
+  - `<context>` — background the user needs before starting (include only if relevant)
+  - `<prereq>` — prerequisites or required conditions (include only if relevant)
+  - `<steps>` — `<step>` elements, each with `<cmd>` and, where needed, `<info>`, `<stepresult>`, or `<substeps>`
+  - `<result>` — what the user sees or has when the task is complete
+  - `<postreq>` — follow-on tasks or next steps (include only if relevant)
+
+## Guidelines
+
+- Write each `<cmd>` as a single imperative sentence: one action, verb-first
+- Use `<substeps>` when a step contains more than one discrete action
+- Use `<info>` for context that supports the command but is not the action itself
+- Use `<stepresult>` for what the user observes after completing the step
+- Add `importance="required"` on mandatory steps
+- Leave `conref` and `keyref` as empty placeholder attributes where cross-references would normally go
+- Do not invent details not present in the source description; use `<!-- TODO -->` where information is missing
+
+## Procedure Description
+
+$ARGUMENTS

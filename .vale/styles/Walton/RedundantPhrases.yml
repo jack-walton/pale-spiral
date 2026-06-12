@@ -1,0 +1,10 @@
+extends: substitution
+message: "Replace '%s' with a simpler alternative."
+level: suggestion
+swap:
+  in order to: to
+  due to the fact that: because
+  at this point in time: now
+  in the event that: if
+  is able to: can
+  are able to: can
