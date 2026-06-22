@@ -7,6 +7,9 @@ export default defineConfig({
 	site: 'https://jackwalton.xyz',
 	integrations: [
 		starlight({
+			components: {
+				Head: './src/components/Head.astro',
+			},
 			title: 'Jack Walton',
 			description: 'Jack Spencer Walton',
 			customCss: ['./src/styles/global.css'],
