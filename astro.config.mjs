@@ -16,6 +16,18 @@ export default defineConfig({
 			favicon: '/icons/icon.svg',
 			head: [
 				{
+					tag: 'meta',
+					attrs: { property: 'og:image', content: 'https://jackwalton.net/social-preview.png' },
+				},
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:card', content: 'summary_large_image' },
+				},
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:image', content: 'https://jackwalton.net/social-preview.png' },
+				},
+				{
 					tag: 'link',
 					attrs: {
 						rel: 'preload',
