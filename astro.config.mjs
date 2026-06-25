@@ -17,7 +17,15 @@ export default defineConfig({
 			head: [
 				{
 					tag: 'meta',
-					attrs: { property: 'og:image', content: 'https://jackwalton.net/social-preview.png' },
+					attrs: { property: 'og:image', content: 'https://jackwalton.net/icons/social-preview.png' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:width', content: '1200' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:height', content: '630' },
 				},
 				{
 					tag: 'meta',
@@ -25,7 +33,7 @@ export default defineConfig({
 				},
 				{
 					tag: 'meta',
-					attrs: { name: 'twitter:image', content: 'https://jackwalton.net/social-preview.png' },
+					attrs: { name: 'twitter:image', content: 'https://jackwalton.net/icons/social-preview.png' },
 				},
 				{
 					tag: 'link',
