@@ -10,7 +10,6 @@ A portfolio site built with Astro + Starlight to showcase technical writing, UX 
 - `src/content/docs/ai/` — prompt library for change logs, Vale rule generation, DITA task scaffolding, and quality assurance
 - `.vale/` — Vale prose linter with custom Walton style rules
 - `src/content/docs/resume.mdx` — resume, experience, education, and technical skills
-- `src/content/docs/changelog.mdx` — project change log for the site itself
 
 ## Project structure
 
