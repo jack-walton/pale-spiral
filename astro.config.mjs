@@ -86,7 +86,6 @@ export default defineConfig({
 			],
 			sidebar: [
 				{ label: 'Introduction', slug: '' },
-				{ label: 'Oracle', slug: 'oracle' },
 				{
 					label: 'VENU Guide',
 					items: [
@@ -109,9 +108,7 @@ export default defineConfig({
 						{ label: 'Quality Assurance', slug: 'ai/qa' },
 					],
 				},
-				{ label: 'Resume', slug: 'resume' },
-				{ label: 'Change Log', slug: 'changelog'
-				}
+				{ label: 'Resume', slug: 'resume' }
 			],
 		}),
 	],
