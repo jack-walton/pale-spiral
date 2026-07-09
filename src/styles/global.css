@@ -32,7 +32,7 @@
 	font-display: optional;
 }
 
-/* Geist Pixel — all five variants */
+/* Geist Pixel Square */
 @font-face {
 	font-family: 'Geist Pixel Square';
 	src: url('/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2');
