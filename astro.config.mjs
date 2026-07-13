@@ -90,6 +90,10 @@ export default defineConfig({
 					label: 'VENU Guide',
 					items: [
 						{ label: 'VENU Overview', slug: 'venu' },
+						// Uncomment when the case study leaves draft (also remove
+						// `draft: true` from its frontmatter and restore the card
+						// in venu/index.mdx):
+						// { label: 'Case Study', slug: 'venu/case-study' },
 						{ label: 'Navigate the App', slug: 'venu/navigate-the-app' },
 						{ label: 'Create an Account', slug: 'venu/create-an-account' },
 						{ label: 'Sign In', slug: 'venu/sign-in' },
