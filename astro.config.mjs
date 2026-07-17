@@ -1,10 +1,105 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import starlight from '@astrojs/starlight';
+
+/**
+ * The dev server serves /_astro/fonts/* with `no-store`, so every page load
+ * re-downloads the fonts and `font-display: optional` can lose the race to
+ * first paint, flashing the fallback fonts. The URLs are content-hashed, so
+ * let the browser cache them during dev. Production output is unaffected.
+ *
+ * @returns {NonNullable<NonNullable<import('astro').AstroUserConfig['vite']>['plugins']>[number]}
+ */
+function devFontCache() {
+	return {
+		name: 'dev-font-cache',
+		apply: 'serve',
+		configureServer(server) {
+			return () => {
+				server.middlewares.stack.unshift({
+					route: '',
+					handle(req, res, next) {
+						if (req.url?.startsWith('/_astro/fonts/')) {
+							const setHeader = res.setHeader.bind(res);
+							res.setHeader = (name, value) =>
+								setHeader(name, /^cache-control$/i.test(name) ? 'public, max-age=3600' : value);
+						}
+						next();
+					},
+				});
+			};
+		},
+	};
+}
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://jackwalton.net',
+	vite: {
+		plugins: [devFontCache()],
+	},
+	fonts: [
+		{
+			provider: fontProviders.local(),
+			name: 'Geist',
+			cssVariable: '--font-geist-sans',
+			fallbacks: ['sans-serif'],
+			options: {
+				variants: [
+					{
+						weight: '100 900',
+						style: 'normal',
+						src: ['./src/assets/fonts/geist-sans/Geist-Variable.woff2'],
+						display: 'optional',
+					},
+					{
+						weight: '100 900',
+						style: 'italic',
+						src: ['./src/assets/fonts/geist-sans/Geist-Italic-Variable.woff2'],
+						display: 'optional',
+					},
+				],
+			},
+		},
+		{
+			provider: fontProviders.local(),
+			name: 'Geist Mono',
+			cssVariable: '--font-geist-mono',
+			fallbacks: ['monospace'],
+			options: {
+				variants: [
+					{
+						weight: '100 900',
+						style: 'normal',
+						src: ['./src/assets/fonts/geist-mono/GeistMono-Variable.woff2'],
+						display: 'optional',
+					},
+					{
+						weight: '100 900',
+						style: 'italic',
+						src: ['./src/assets/fonts/geist-mono/GeistMono-Italic-Variable.woff2'],
+						display: 'optional',
+					},
+				],
+			},
+		},
+		{
+			provider: fontProviders.local(),
+			name: 'Geist Pixel Square',
+			cssVariable: '--font-geist-pixel',
+			fallbacks: ['monospace'],
+			options: {
+				variants: [
+					{
+						weight: 400,
+						style: 'normal',
+						src: ['./src/assets/fonts/geist-pixel/GeistPixel-Square.woff2'],
+						display: 'optional',
+					},
+				],
+			},
+		},
+	],
 	integrations: [
 		starlight({
 			components: {
@@ -34,36 +129,6 @@ export default defineConfig({
 				{
 					tag: 'meta',
 					attrs: { name: 'twitter:image', content: 'https://jackwalton.net/icons/social-preview.png' },
-				},
-				{
-					tag: 'link',
-					attrs: {
-						rel: 'preload',
-						href: '/fonts/geist-sans/Geist-Variable.woff2',
-						as: 'font',
-						type: 'font/woff2',
-						crossorigin: 'anonymous',
-					},
-				},
-				{
-					tag: 'link',
-					attrs: {
-						rel: 'preload',
-						href: '/fonts/geist-mono/GeistMono-Variable.woff2',
-						as: 'font',
-						type: 'font/woff2',
-						crossorigin: 'anonymous',
-					},
-				},
-				{
-					tag: 'link',
-					attrs: {
-						rel: 'preload',
-						href: '/fonts/geist-pixel/GeistPixel-Square.woff2',
-						as: 'font',
-						type: 'font/woff2',
-						crossorigin: 'anonymous',
-					},
 				},
 				{
 					tag: 'link',

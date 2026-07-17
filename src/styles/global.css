@@ -1,56 +1,13 @@
-/* Geist Sans — variable font, all weights */
-@font-face {
-	font-family: 'Geist';
-	src: url('/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
-	font-weight: 100 900;
-	font-style: normal;
-	font-display: optional;
-}
-
-@font-face {
-	font-family: 'Geist';
-	src: url('/fonts/geist-sans/Geist-Italic-Variable.woff2') format('woff2');
-	font-weight: 100 900;
-	font-style: italic;
-	font-display: optional;
-}
-
-/* Geist Mono — variable font, all weights */
-@font-face {
-	font-family: 'Geist Mono';
-	src: url('/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
-	font-weight: 100 900;
-	font-style: normal;
-	font-display: optional;
-}
-
-@font-face {
-	font-family: 'Geist Mono';
-	src: url('/fonts/geist-mono/GeistMono-Italic-Variable.woff2') format('woff2');
-	font-weight: 100 900;
-	font-style: italic;
-	font-display: optional;
-}
-
-/* Geist Pixel Square */
-@font-face {
-	font-family: 'Geist Pixel Square';
-	src: url('/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: optional;
-}
-
-
+/* Font families come from Astro's Fonts API — see `fonts` in astro.config.mjs */
 :root {
-	--sl-font: 'Geist', sans-serif;
-	--sl-font-mono: 'Geist Mono', monospace;
+	--sl-font: var(--font-geist-sans);
+	--sl-font-mono: var(--font-geist-mono);
 	--sl-content-width: 50rem;
 }
 
 /* Geist Pixel Square for the site title */
 .site-title {
-	font-family: 'Geist Pixel Square', monospace;
+	font-family: var(--font-geist-pixel);
 	letter-spacing: 0.02em;
 }
 

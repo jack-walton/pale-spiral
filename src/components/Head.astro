@@ -1,7 +1,11 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
+import { Font } from 'astro:assets';
 import Analytics from '@vercel/analytics/astro';
 ---
 
 <Default><slot /></Default>
+<Font cssVariable="--font-geist-sans" preload={[{ style: 'normal' }]} />
+<Font cssVariable="--font-geist-mono" preload={[{ style: 'normal' }]} />
+<Font cssVariable="--font-geist-pixel" preload />
 <Analytics />
