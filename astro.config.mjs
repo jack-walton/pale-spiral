@@ -40,64 +40,28 @@ export default defineConfig({
 	},
 	fonts: [
 		{
-			provider: fontProviders.local(),
-			name: 'Geist',
-			cssVariable: '--font-geist-sans',
+			provider: fontProviders.google(),
+			name: 'Zen Kaku Gothic New',
+			cssVariable: '--font-zen-kaku',
 			fallbacks: ['sans-serif'],
-			options: {
-				variants: [
-					{
-						weight: '100 900',
-						style: 'normal',
-						src: ['./src/assets/fonts/geist-sans/Geist-Variable.woff2'],
-						display: 'optional',
-					},
-					{
-						weight: '100 900',
-						style: 'italic',
-						src: ['./src/assets/fonts/geist-sans/Geist-Italic-Variable.woff2'],
-						display: 'optional',
-					},
-				],
-			},
+			weights: [400, 500, 700],
+			styles: ['normal'],
 		},
 		{
-			provider: fontProviders.local(),
-			name: 'Geist Mono',
-			cssVariable: '--font-geist-mono',
-			fallbacks: ['monospace'],
-			options: {
-				variants: [
-					{
-						weight: '100 900',
-						style: 'normal',
-						src: ['./src/assets/fonts/geist-mono/GeistMono-Variable.woff2'],
-						display: 'optional',
-					},
-					{
-						weight: '100 900',
-						style: 'italic',
-						src: ['./src/assets/fonts/geist-mono/GeistMono-Italic-Variable.woff2'],
-						display: 'optional',
-					},
-				],
-			},
+			provider: fontProviders.google(),
+			name: 'Zen Dots',
+			cssVariable: '--font-zen-dots',
+			fallbacks: ['sans-serif'],
+			weights: [400],
+			styles: ['normal'],
 		},
 		{
-			provider: fontProviders.local(),
-			name: 'Geist Pixel Square',
-			cssVariable: '--font-geist-pixel',
-			fallbacks: ['monospace'],
-			options: {
-				variants: [
-					{
-						weight: 400,
-						style: 'normal',
-						src: ['./src/assets/fonts/geist-pixel/GeistPixel-Square.woff2'],
-						display: 'optional',
-					},
-				],
-			},
+			provider: fontProviders.google(),
+			name: 'Zen Tokyo Zoo',
+			cssVariable: '--font-zen-tokyo-zoo',
+			fallbacks: ['sans-serif'],
+			weights: [400],
+			styles: ['normal'],
 		},
 	],
 	integrations: [
@@ -146,24 +110,18 @@ export default defineConfig({
 				},
 			],
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/jack-walton' },
-				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/jackspencerwalton/' },
+				{ icon: 'email', label: 'Email', href: 'mailto:contact@jackwalton.net' },
+				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/jackspencerwalton/' },
+				{ icon: 'x.com', label: 'X', href: 'https://x.com/suburbanrunaway' },
+				{ icon: 'instagram', label: 'Instagram', href: 'https://instagram.com/suburbanrunaway_' },
 			],
 			sidebar: [
-				{ label: 'Introduction', slug: '' },
 				{
-					label: 'VENU Guide',
+					label: 'VENU',
 					items: [
-						{ label: 'VENU Overview', slug: 'venu' },
-						// Uncomment when the case study leaves draft (also remove
-						// `draft: true` from its frontmatter and restore the card
-						// in venu/index.mdx):
-						// { label: 'Case Study', slug: 'venu/case-study' },
-						{ label: 'Navigate the App', slug: 'venu/navigate-the-app' },
-						{ label: 'Create an Account', slug: 'venu/create-an-account' },
-						{ label: 'Sign In', slug: 'venu/sign-in' },
-						{ label: 'Search for Events', slug: 'venu/search-for-events' },
-						{ label: 'Buy Tickets', slug: 'venu/buy-tickets' },
+						{ label: 'Case Study', slug: 'venu' },
+						{ label: 'User Guide', slug: 'venu/guide' },
+						{ label: 'Release Notes', slug: 'venu/release-notes' },
 					],
 				},
 				{
@@ -174,9 +132,23 @@ export default defineConfig({
 						{ label: 'Vale Rule Generator', slug: 'ai/vale-rule' },
 						{ label: 'DITA Task Scaffold', slug: 'ai/dita-task' },
 						{ label: 'Quality Assurance', slug: 'ai/qa' },
+						{ label: 'Release Notes Generator', slug: 'ai/release-notes' },
 					],
 				},
-				{ label: 'Resume', slug: 'resume' }
+				{
+					label: 'Academia',
+					items: [
+						{ label: 'Academic Work', slug: 'academia' },
+						{ label: 'Music Information Retrieval in Bandcamp', slug: 'academia/bandcamp' },
+						{ label: "St. Didier's Flowering Verge", slug: 'academia/different-visions' },
+						{ label: 'A Quantitative Analysis of the Royer Didier', slug: 'academia/daedalus' },
+						{ label: 'Summer Undergraduate Research Opportunity Proposal', slug: 'academia/grant-proposal' },
+					],
+				},
+				{
+					label: 'Blog',
+					link: 'https://suburbanrunaway.xyz',
+				},
 			],
 		}),
 	],
