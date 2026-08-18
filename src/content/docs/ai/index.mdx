@@ -4,9 +4,9 @@ title: Prompt Library
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-Four structured prompts I use with Claude Code, each included here as a portfolio artifact.
+Five structured prompts I use with Claude Code, each included here as a portfolio artifact.
 
-All four prompts use `$ARGUMENTS`, a Claude Code placeholder replaced at runtime with whatever input you pass to the command. This makes each prompt reusable across projects without modification.
+All five prompts use `$ARGUMENTS`, a Claude Code placeholder replaced at runtime with whatever input you pass to the command. This makes each prompt reusable across projects without modification.
 
 <CardGrid>
     <LinkCard
@@ -28,5 +28,10 @@ All four prompts use `$ARGUMENTS`, a Claude Code placeholder replaced at runtime
         title="Quality Assurance"
         description="Runs Vale, fixes all findings, then applies brand voice rules to the site's prose sections — short sentences, direct first person, no vague adjectives."
         href="/ai/qa/"
+    />
+    <LinkCard
+        title="Release Notes Generator"
+        description="Turns a repository's git history into versioned, customer-facing release notes that describe each change as users experience it."
+        href="/ai/release-notes/"
     />
 </CardGrid>
