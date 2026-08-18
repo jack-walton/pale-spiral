@@ -5,7 +5,8 @@ import Analytics from '@vercel/analytics/astro';
 ---
 
 <Default><slot /></Default>
-<Font cssVariable="--font-geist-sans" preload={[{ style: 'normal' }]} />
-<Font cssVariable="--font-geist-mono" preload={[{ style: 'normal' }]} />
-<Font cssVariable="--font-geist-pixel" preload />
+{/* Preload body and wordmark faces for first paint */}
+<Font cssVariable="--font-zen-kaku" preload={[{ style: 'normal', weight: '400' }]} />
+<Font cssVariable="--font-zen-dots" preload />
+<Font cssVariable="--font-zen-tokyo-zoo" />
 <Analytics />
