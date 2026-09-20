@@ -1,13 +1,11 @@
 # Pale Spiral
 
-A portfolio site built with Astro + Starlight to showcase technical writing, UX documentation, and prompt engineering.
+A portfolio site built with Astro + Starlight to showcase technical writing and UX documentation.
 
 ## What’s included
 
 - `src/content/docs/index.mdx` — homepage and portfolio overview
 - `src/content/docs/venu/` — VENU mobile app user guide with task flows, screenshots, and navigation descriptions
-- `src/content/docs/venu/case-study.mdx` — UX writing case study for VENU (in draft, not yet published)
-- `src/content/docs/ai/` — prompt library for change logs, Vale rule generation, DITA task scaffolding, and quality assurance
 - `.vale/` — Vale prose linter with custom Walton style rules
 - `src/content/docs/resume.mdx` — resume, experience, education, and technical skills
 
