@@ -1,33 +1,25 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 /**
- * The dev server serves /_astro/fonts/* with `no-store`, so every page load
- * re-downloads the fonts and `font-display: optional` can lose the race to
- * first paint, flashing the fallback fonts. The URLs are content-hashed, so
- * let the browser cache them during dev. Production output is unaffected.
+ * Vite marks hashed assets `no-store` in `astro dev`. That makes
+ * `font-display: optional` fail on every first paint. Cache the two
+ * latin webfonts in the browser during local development only.
  *
  * @returns {NonNullable<NonNullable<import('astro').AstroUserConfig['vite']>['plugins']>[number]}
  */
-function devFontCache() {
+function cacheFontsInDev() {
 	return {
-		name: 'dev-font-cache',
+		name: 'cache-fonts-in-dev',
 		apply: 'serve',
 		configureServer(server) {
-			return () => {
-				server.middlewares.stack.unshift({
-					route: '',
-					handle(req, res, next) {
-						if (req.url?.startsWith('/_astro/fonts/')) {
-							const setHeader = res.setHeader.bind(res);
-							res.setHeader = (name, value) =>
-								setHeader(name, /^cache-control$/i.test(name) ? 'public, max-age=3600' : value);
-						}
-						next();
-					},
-				});
-			};
+			server.middlewares.use((req, res, next) => {
+				if (req.url && /\.woff2(?:$|\?)/.test(req.url)) {
+					res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+				}
+				next();
+			});
 		},
 	};
 }
@@ -36,30 +28,13 @@ function devFontCache() {
 export default defineConfig({
 	site: 'https://jackwalton.net',
 	vite: {
-		plugins: [devFontCache()],
+		plugins: [cacheFontsInDev()],
 	},
-	fonts: [
-		{
-			provider: fontProviders.google(),
-			name: 'Zen Kaku Gothic New',
-			cssVariable: '--font-zen-kaku',
-			fallbacks: ['sans-serif'],
-			weights: [400, 500, 700],
-			styles: ['normal'],
-		},
-		{
-			provider: fontProviders.google(),
-			name: 'Zen Dots',
-			cssVariable: '--font-zen-dots',
-			fallbacks: ['sans-serif'],
-			weights: [400],
-			styles: ['normal'],
-		},
-	],
 	integrations: [
 		starlight({
 			components: {
 				Head: './src/components/Head.astro',
+				Hero: './src/components/Hero.astro',
 			},
 			title: 'Jack Walton',
 			description: 'Jack Spencer Walton',

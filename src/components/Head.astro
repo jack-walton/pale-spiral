@@ -1,11 +1,42 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
-import { Font } from 'astro:assets';
 import Analytics from '@vercel/analytics/astro';
+import zenKaku from '@fontsource/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-400-normal.woff2?url';
+import zenDots from '@fontsource/zen-dots/files/zen-dots-latin-400-normal.woff2?url';
+import geistMono from '@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2?url';
+
+// Vite serves fonts with Cache-Control: no-store in dev, so `optional` loses
+// the first-paint race and the fallback stays. Fontsource/Astro default is swap.
+const fontDisplay = import.meta.env.DEV ? 'swap' : 'optional';
+const fontCss = `
+@font-face {
+	font-family: 'Zen Kaku Gothic New';
+	font-style: normal;
+	font-weight: 400;
+	font-display: ${fontDisplay};
+	src: url('${zenKaku}') format('woff2');
+}
+@font-face {
+	font-family: 'Zen Dots';
+	font-style: normal;
+	font-weight: 400;
+	font-display: ${fontDisplay};
+	src: url('${zenDots}') format('woff2');
+}
+@font-face {
+	font-family: 'Geist Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-display: ${fontDisplay};
+	src: url('${geistMono}') format('woff2');
+}
+`;
 ---
 
+<link rel="preload" href={zenKaku} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={zenDots} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={geistMono} as="font" type="font/woff2" crossorigin />
+<style is:inline set:html={fontCss} />
+<meta name="vercel-toolbar" content="disable" />
 <Default><slot /></Default>
-{/* Preload body and wordmark faces for first paint */}
-<Font cssVariable="--font-zen-kaku" preload={[{ style: 'normal', weight: '400' }]} />
-<Font cssVariable="--font-zen-dots" preload />
 <Analytics />
