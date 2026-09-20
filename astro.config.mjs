@@ -55,14 +55,6 @@ export default defineConfig({
 			weights: [400],
 			styles: ['normal'],
 		},
-		{
-			provider: fontProviders.google(),
-			name: 'Zen Tokyo Zoo',
-			cssVariable: '--font-zen-tokyo-zoo',
-			fallbacks: ['sans-serif'],
-			weights: [400],
-			styles: ['normal'],
-		},
 	],
 	integrations: [
 		starlight({
@@ -116,23 +108,14 @@ export default defineConfig({
 				{ icon: 'instagram', label: 'Instagram', href: 'https://instagram.com/jackspencerwalton' },
 			],
 			sidebar: [
+				{ label: 'This site', slug: 'projects' },
+				{ label: 'Oracle', slug: 'oracle' },
 				{
 					label: 'VENU',
 					items: [
 						{ label: 'Case Study', slug: 'venu' },
 						{ label: 'User Guide', slug: 'venu/guide' },
 						{ label: 'Release Notes', slug: 'venu/release-notes' },
-					],
-				},
-				{
-					label: 'Prompt Library',
-					items: [
-						{ label: 'Prompt Library Overview', slug: 'ai' },
-						{ label: 'Change Log Generator', slug: 'ai/change-log' },
-						{ label: 'Vale Rule Generator', slug: 'ai/vale-rule' },
-						{ label: 'DITA Task Scaffold', slug: 'ai/dita-task' },
-						{ label: 'Quality Assurance', slug: 'ai/qa' },
-						{ label: 'Release Notes Generator', slug: 'ai/release-notes' },
 					],
 				},
 				{
@@ -145,10 +128,7 @@ export default defineConfig({
 						{ label: 'Summer Undergraduate Research Opportunity Proposal', slug: 'academia/grant-proposal' },
 					],
 				},
-				{
-					label: 'Blog',
-					link: 'https://suburbanrunaway.xyz',
-				},
+				{ label: 'Blog', slug: 'blog' },
 			],
 		}),
 	],
