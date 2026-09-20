@@ -1,43 +1,47 @@
 ---
 title: 'Case Study: Writing VENU'
-description: How I designed the content for a consumer ticketing app — from terminology and voice to error states and the user guide.
+description: How I designed the content for a speculative consumer ticketing app — terminology, task flows, error states, and the user guide that documents it.
+head:
+  - tag: title
+    content: VENU
 ---
 
-**Role:** UX writer & content designer (solo project) ·
+import { LinkButton, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+**Role:** UX writer and content designer (solo project) ·
 **Scope:** Product copy, terminology, error states, user guide ·
-**Tools:** Figma, Astro/Starlight, Vale, Claude Code ·
-**Timeline:** TODO
+**Tools:** Figma, Astro/Starlight, Vale, Claude Code
 
 ## Why this project exists
 
-VENU is not a shipped app. It is a speculative ticketing product I designed in Figma, with a user guide and release notes written for that prototype. I published it because I cannot show the healthcare apps I worked on in Oracle Design. The content problems are the same: terminology, task flows, empty and error states, and what to say when the product changes.
+VENU is a speculative ticketing product I designed in Figma, with a user guide
+and release notes written for that prototype. I published it because the
+healthcare apps I worked on in Oracle Design are not mine to show. The content
+problems are the same ones I solve at work: naming things consistently, breaking
+a purchase into steps a stranger can follow, writing the screen that appears when
+something goes wrong, and telling people what changed when the product moves.
 
-## The problem
+Building the prototype first was the point. Writing UI copy against a real
+layout forces decisions that a copy deck lets you postpone — how long a button
+label can be before it wraps, what the empty Resale balance says before a user
+has sold anything, whether "Transferred" and "Sold" are distinct enough to be
+separate tabs.
 
-### Constraints
+## What's here
 
-## Research
+<CardGrid>
+	<LinkCard
+		title="User Guide"
+		description="Task documentation for the prototype: account setup, search, purchase, and resale."
+		href="/venu/guide/"
+	/>
+	<LinkCard
+		title="Release Notes"
+		description="Version history written as if the prototype shipped and kept changing."
+		href="/venu/release-notes/"
+	/>
+</CardGrid>
 
-### Comparative content audit
-
-### Terminology inventory
-
-### User pain
-
-## Voice, tone, and content standards
-
-## Deep dive: the checkout flow
-
-## Deep dive: errors and edge cases
-
-## Iteration
-
-| Draft | Shipped | Why |
-| ----- | ------- | --- |
-| TODO  | TODO    | TODO |
-
-## From UI copy to user guide
-
-## Validation
-
-## Reflection
+<LinkButton href="https://gills-crank-13926490.figma.site/" target="_blank" variant="secondary" icon="external">
+	Try the Prototype
+</LinkButton>

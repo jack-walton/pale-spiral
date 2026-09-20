@@ -1,24 +1,40 @@
 ---
 title: Oracle
-description: User assistance I maintain for Oracle products, with links to the public docs.
+description: User assistance I maintain for Oracle SOA Suite and Oracle Integration, with links to the public docs.
 ---
 
-import { LinkButton } from '@astrojs/starlight/components';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-I work as a senior user assistance developer at Oracle. I write educational web content for developers who need to connect Oracle database products to other solutions. The public docs live on docs.oracle.com.
+I am a user assistance developer at Oracle. I write educational web content for
+developers who need to connect Oracle database products to other systems.
 
 ## Current work
 
-I focus on application and data integrations. I transferred to that team from the Oracle Health product organization, where I documented known issues, releases, and user workflows.
+I work on application and data integrations. In August 2026, I took over the SOA
+Suite documentation library and the Oracle Integration adapter finder. Both are
+public.
+
+<CardGrid>
+	<LinkCard
+		title="Oracle SOA Suite"
+		description="The documentation library for SOA Suite across on-premises, Kubernetes, and Marketplace releases — BPEL Process Manager, B2B, Business Activity Monitoring, Service Bus, and the SOA adapters."
+		href="https://docs.oracle.com/en/middleware/soa-suite/index.html"
+	/>
+	<LinkCard
+		title="Oracle Integration 3 adapter finder"
+		description="A searchable catalog of every adapter that connects Oracle Integration to an external system. I maintain the application on this page."
+		href="https://docs.oracle.com/en/cloud/paas/application-integration/find-adapters.html"
+	/>
+</CardGrid>
 
 ## Earlier at Oracle
 
-I spent time in Oracle Design on research and design teams, working on a suite of healthcare information management apps. I cannot show that product work here. [VENU](/venu/) is a public demonstration of the kind of content I wrote there: terminology, tasks, errors, and release notes.
+I started at Cerner in October 2021 and joined Oracle through its acquisition the
+following year. From 2023 to 2025, I worked in Oracle Design on research and
+design teams building a suite of healthcare information management apps. I then
+moved to the Oracle Health product organization, where I documented known issues,
+releases, and user workflows until transferring to integrations.
 
-I joined Oracle through its acquisition of Cerner.
-
-## Public docs
-
-<LinkButton href="https://docs.oracle.com/" variant="secondary" icon="external">
-	docs.oracle.com
-</LinkButton>
+The Oracle Design work is not mine to show. [VENU](/venu/) is a public
+demonstration of the kind of content I wrote there: terminology, tasks, errors,
+and release notes.
