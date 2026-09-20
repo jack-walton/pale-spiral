@@ -17,12 +17,6 @@ importers:
       astro:
         specifier: ^6.1.9
         version: 6.1.10(@types/node@24.12.2)(rollup@4.60.2)
-      geist:
-        specifier: ^1.7.2
-        version: 1.7.2(next@16.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
-      marqy:
-        specifier: ^1.1.1
-        version: 1.1.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
@@ -1059,11 +1053,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  geist@1.7.2:
-    resolution: {integrity: sha512-Gu5lDFa3pLRyoBlBPf0QIFHVdWAnpco7fS1bJm41jyLPFoguBgiubseUN2oLXMgqZ7uxAxDoXcHMhCY/fOTTgg==}
-    peerDependencies:
-      next: '>=13.2.0'
-
   github-slugger@2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
 
@@ -1213,23 +1202,6 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
-
-  marqy@1.1.1:
-    resolution: {integrity: sha512-kDS3gAYrN2ypb1e4oWx4P520iaReyRuEw7x/O2QuTt2wnrDpVsYe+fgMSRWXthGAJutDKjiluSxzIpxkjBsfvw==}
-    peerDependencies:
-      react: 17.x || 18.x || 19.x
-      react-dom: 17.x || 18.x || 19.x
-      svelte: ^5.0.0
-      vue: ^3.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-      svelte:
-        optional: true
-      vue:
-        optional: true
 
   mdast-util-definitions@6.0.0:
     resolution: {integrity: sha512-scTllyX6pnYNZH/AIp/0ePz6s4cZtARxImwoPJ7kS42n+MnVsI4XbnG6d4ibehRIldYMWM2LD7ImQblVhUejVQ==}
@@ -2312,7 +2284,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@next/env@16.2.7': {}
+  '@next/env@16.2.7':
+    optional: true
 
   '@next/swc-darwin-arm64@16.2.7':
     optional: true
@@ -2520,6 +2493,7 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+    optional: true
 
   '@types/debug@4.1.13':
     dependencies:
@@ -2691,7 +2665,8 @@ snapshots:
 
   bail@2.0.2: {}
 
-  baseline-browser-mapping@2.10.34: {}
+  baseline-browser-mapping@2.10.34:
+    optional: true
 
   bcp-47-match@2.0.3: {}
 
@@ -2703,7 +2678,8 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-  caniuse-lite@1.0.30001797: {}
+  caniuse-lite@1.0.30001797:
+    optional: true
 
   ccount@2.0.1: {}
 
@@ -2721,7 +2697,8 @@ snapshots:
 
   ci-info@4.4.0: {}
 
-  client-only@0.0.1: {}
+  client-only@0.0.1:
+    optional: true
 
   clsx@2.1.1: {}
 
@@ -2940,10 +2917,6 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
-
-  geist@1.7.2(next@16.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
-    dependencies:
-      next: 16.2.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
 
   github-slugger@2.0.0: {}
 
@@ -3212,11 +3185,6 @@ snapshots:
   markdown-extensions@2.0.0: {}
 
   markdown-table@3.0.4: {}
-
-  marqy@1.1.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
-    optionalDependencies:
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
 
   mdast-util-definitions@6.0.0:
     dependencies:
@@ -3710,6 +3678,7 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    optional: true
 
   nlcst-to-string@4.0.0:
     dependencies:
@@ -3812,6 +3781,7 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+    optional: true
 
   postcss@8.5.12:
     dependencies:
@@ -3829,8 +3799,10 @@ snapshots:
     dependencies:
       react: 19.2.7
       scheduler: 0.27.0
+    optional: true
 
-  react@19.2.7: {}
+  react@19.2.7:
+    optional: true
 
   readdirp@5.0.0: {}
 
@@ -4030,7 +4002,8 @@ snapshots:
 
   sax@1.6.0: {}
 
-  scheduler@0.27.0: {}
+  scheduler@0.27.0:
+    optional: true
 
   semver@7.7.4: {}
 
@@ -4123,6 +4096,7 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 19.2.7
+    optional: true
 
   svgo@4.0.1:
     dependencies:
@@ -4151,7 +4125,8 @@ snapshots:
 
   tsconfck@3.1.6: {}
 
-  tslib@2.8.1: {}
+  tslib@2.8.1:
+    optional: true
 
   ufo@1.6.4: {}
 
