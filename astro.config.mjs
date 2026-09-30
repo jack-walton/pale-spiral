@@ -79,7 +79,6 @@ export default defineConfig({
 			social: [
 				{ icon: 'email', label: 'Email', href: 'mailto:contact@jackwalton.net' },
 				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/jackspencerwalton/' },
-				{ icon: 'x.com', label: 'X', href: 'https://x.com/jspencerwalton' },
 				{ icon: 'instagram', label: 'Instagram', href: 'https://instagram.com/jackspencerwalton' },
 			],
 			sidebar: [
@@ -103,7 +102,6 @@ export default defineConfig({
 						{ label: 'Summer Undergraduate Research Opportunity Proposal', slug: 'academia/grant-proposal' },
 					],
 				},
-				{ label: 'Blog', slug: 'blog' },
 			],
 		}),
 	],

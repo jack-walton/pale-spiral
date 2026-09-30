@@ -9,5 +9,31 @@
 				}
 			]
 		}
+	],
+	"redirects": [
+		{ "source": "/resume", "destination": "/", "permanent": true },
+		{ "source": "/resume/", "destination": "/", "permanent": true },
+		{ "source": "/ai", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/change-log", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/change-log/", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/vale-rule", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/vale-rule/", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/dita-task", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/dita-task/", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/qa", "destination": "/projects/", "permanent": true },
+		{ "source": "/ai/qa/", "destination": "/projects/", "permanent": true },
+		{ "source": "/venu/case-study", "destination": "/venu/", "permanent": true },
+		{ "source": "/venu/case-study/", "destination": "/venu/", "permanent": true },
+		{ "source": "/venu/navigate-the-app", "destination": "/venu/guide/#navigate-the-app", "permanent": true },
+		{ "source": "/venu/navigate-the-app/", "destination": "/venu/guide/#navigate-the-app", "permanent": true },
+		{ "source": "/venu/create-an-account", "destination": "/venu/guide/#create-an-account", "permanent": true },
+		{ "source": "/venu/create-an-account/", "destination": "/venu/guide/#create-an-account", "permanent": true },
+		{ "source": "/venu/sign-in", "destination": "/venu/guide/#sign-in", "permanent": true },
+		{ "source": "/venu/sign-in/", "destination": "/venu/guide/#sign-in", "permanent": true },
+		{ "source": "/venu/search-for-events", "destination": "/venu/guide/#search-for-events", "permanent": true },
+		{ "source": "/venu/search-for-events/", "destination": "/venu/guide/#search-for-events", "permanent": true },
+		{ "source": "/venu/buy-tickets", "destination": "/venu/guide/#buy-tickets", "permanent": true },
+		{ "source": "/venu/buy-tickets/", "destination": "/venu/guide/#buy-tickets", "permanent": true }
 	]
 }
