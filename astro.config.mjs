@@ -26,7 +26,7 @@ function cacheFontsInDev() {
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://jackwalton.net',
+	site: 'https://www.techcomm.dev',
 	vite: {
 		plugins: [cacheFontsInDev()],
 	},
@@ -36,14 +36,14 @@ export default defineConfig({
 				Head: './src/components/Head.astro',
 				Hero: './src/components/Hero.astro',
 			},
-			title: 'Jack Walton',
-			description: 'Jack Spencer Walton',
+			title: 'techcomm.dev',
+			description: 'Jack Walton is a technical writer in New York City.',
 			customCss: ['./src/styles/global.css'],
 			favicon: '/icons/icon.svg',
 			head: [
 				{
 					tag: 'meta',
-					attrs: { property: 'og:image', content: 'https://jackwalton.net/icons/social-preview.png' },
+					attrs: { property: 'og:image', content: 'https://www.techcomm.dev/icons/social-preview.png' },
 				},
 				{
 					tag: 'meta',
@@ -59,7 +59,7 @@ export default defineConfig({
 				},
 				{
 					tag: 'meta',
-					attrs: { name: 'twitter:image', content: 'https://jackwalton.net/icons/social-preview.png' },
+					attrs: { name: 'twitter:image', content: 'https://www.techcomm.dev/icons/social-preview.png' },
 				},
 				{
 					tag: 'link',
@@ -77,12 +77,12 @@ export default defineConfig({
 				},
 			],
 			social: [
-				{ icon: 'email', label: 'Email', href: 'mailto:contact@jackwalton.net' },
+				{ icon: 'email', label: 'Email', href: 'mailto:jack@techcomm.dev' },
 				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/jackspencerwalton/' },
-				{ icon: 'instagram', label: 'Instagram', href: 'https://instagram.com/jackspencerwalton' },
+				{ icon: 'x.com', label: 'X', href: 'https://x.com/techcommdotdev' },
 			],
 			sidebar: [
-				{ label: 'About', slug: 'projects' },
+				{ label: 'Work', slug: 'projects' },
 				{ label: 'Oracle', slug: 'oracle' },
 				{
 					label: 'VENU',
@@ -90,16 +90,6 @@ export default defineConfig({
 						{ label: 'Case Study', slug: 'venu' },
 						{ label: 'User Guide', slug: 'venu/guide' },
 						{ label: 'Release Notes', slug: 'venu/release-notes' },
-					],
-				},
-				{
-					label: 'Academia',
-					items: [
-						{ label: 'Academic Work', slug: 'academia' },
-						{ label: 'Music Information Retrieval in Bandcamp', slug: 'academia/bandcamp' },
-						{ label: "St. Didier's Flowering Verge", slug: 'academia/different-visions' },
-						{ label: 'A Quantitative Analysis of the Royer Didier', slug: 'academia/daedalus' },
-						{ label: 'Summer Undergraduate Research Opportunity Proposal', slug: 'academia/grant-proposal' },
 					],
 				},
 			],

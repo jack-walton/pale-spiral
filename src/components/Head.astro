@@ -1,6 +1,7 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
 import Analytics from '@vercel/analytics/astro';
+import PostHog from './posthog.astro';
 import zenKaku from '@fontsource/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-400-normal.woff2?url';
 import zenDots from '@fontsource/zen-dots/files/zen-dots-latin-400-normal.woff2?url';
 import geistMono from '@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2?url';
@@ -39,4 +40,5 @@ const fontCss = `
 <style is:inline set:html={fontCss} />
 <meta name="vercel-toolbar" content="disable" />
 <Default><slot /></Default>
+<PostHog />
 <Analytics />
