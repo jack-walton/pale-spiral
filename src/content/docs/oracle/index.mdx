@@ -6,18 +6,28 @@ description: User assistance I maintain for Oracle SOA Suite and Oracle Integrat
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 I am a user assistance developer at Oracle. I write educational web content for
-developers who need to connect Oracle database products to other systems.
+developers who need to connect Oracle products to other systems — SOA Suite and
+Oracle Integration.
 
 ## Current work
 
-I work on application and data integrations. In August 2026, I took over the SOA
-Suite documentation library and the Oracle Integration adapter finder. Both are
-public.
+I work on application and data integrations. In August 2026 I took ownership of
+the SOA Suite documentation: the topics in that library, across on-premises,
+Kubernetes, and Marketplace releases. The same month I took over the Oracle
+Integration adapter finder. Both are public.
+
+The adapter finder is an application on the docs site: a searchable catalog of
+every adapter that connects Oracle Integration to an external system. Since I
+took it over I removed unused legacy code, redesigned the web release script so
+deploys need less manual intervention, and replaced an inner scrollbar — which
+broke readability and accessibility — with a paginator. I also reworked the CSS
+so the app holds up on small screens. I add adapter cards as products ship. More
+search-filter categories are next.
 
 <CardGrid>
 	<LinkCard
 		title="Oracle SOA Suite"
-		description="The documentation library for SOA Suite across on-premises, Kubernetes, and Marketplace releases — BPEL Process Manager, B2B, Business Activity Monitoring, Service Bus, and the SOA adapters."
+		description="The SOA Suite documentation library. I own the topics in this library across on-premises, Kubernetes, and Marketplace releases."
 		href="https://docs.oracle.com/en/middleware/soa-suite/index.html"
 	/>
 	<LinkCard

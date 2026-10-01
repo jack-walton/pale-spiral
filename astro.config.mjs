@@ -82,7 +82,7 @@ export default defineConfig({
 				{ icon: 'instagram', label: 'Instagram', href: 'https://instagram.com/jackspencerwalton' },
 			],
 			sidebar: [
-				{ label: 'This site', slug: 'projects' },
+				{ label: 'About', slug: 'projects' },
 				{ label: 'Oracle', slug: 'oracle' },
 				{
 					label: 'VENU',
