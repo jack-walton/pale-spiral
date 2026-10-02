@@ -10,6 +10,15 @@ html {
 	font-family: var(--sl-font);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: clip;
+}
+
+/* Starlight uses 100vh on .page. On iOS that is the large viewport (URL bar
+ * hidden), so short pages stay scrollable past the footer. svh matches the
+ * visible screen. */
+.page {
+	min-height: 100vh;
+	min-height: 100svh;
 }
 
 body,
