@@ -92,7 +92,7 @@ export default defineConfig({
 				{
 					label: 'VENU',
 					items: [
-						{ label: 'Case Study', slug: 'venu' },
+						{ label: 'VENU', slug: 'venu' },
 						{ label: 'User Guide', slug: 'venu/guide' },
 						{ label: 'Release Notes', slug: 'venu/release-notes' },
 					],
