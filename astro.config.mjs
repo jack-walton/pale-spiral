@@ -85,14 +85,14 @@ export default defineConfig({
 				{
 					label: 'Oracle',
 					items: [
-						{ label: 'Overview', slug: 'oracle' },
+						{ label: 'Oracle Overview', slug: 'oracle' },
 						{ label: 'Adapter Finder', slug: 'oracle/adapter-finder' },
 					],
 				},
 				{
 					label: 'VENU',
 					items: [
-						{ label: 'VENU', slug: 'venu' },
+						{ label: 'VENU Overview', slug: 'venu' },
 						{ label: 'User Guide', slug: 'venu/guide' },
 						{ label: 'Release Notes', slug: 'venu/release-notes' },
 					],
