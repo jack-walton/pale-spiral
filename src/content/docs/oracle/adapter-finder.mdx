@@ -1,0 +1,66 @@
+---
+title: 'Case Study: Oracle Integration Adapter Finder Redesign'
+description: How I improved accessibility and discoverability by replacing an inner scrollbar with pagination, auditing 300+ tiles, and making the grid responsive.
+---
+
+import { Image } from 'astro:assets';
+import desktopBefore from '../../../assets/images/finder-app/2026-10-07_13-30-01.png';
+import mobileBefore from '../../../assets/images/finder-app/2026-10-07_13-31-28.png';
+import paginatorDesign from '../../../assets/images/finder-app/2026-10-07_13-35-03.png';
+import desktopAfter from '../../../assets/images/finder-app/2026-10-07_13-35-32.png';
+import mobileAfter from '../../../assets/images/finder-app/2026-10-07_13-36-06.png';
+
+**Role:** User assistance developer ·
+**Scope:** Accessibility fix (removed inner scroll), responsive redesign, content audit (300+ tiles), UX improvements ·
+**Tools:** OJET, Redwood design system, AI audit tools, CSS
+
+## The problem
+
+The adapter finder is an embedded application on the Oracle Integration 3 documentation site—a searchable catalog of 305+ recipes and adapters that connect Oracle Integration to external systems. It shipped as an iframe with an inner scrollbar within the tile grid.
+
+The inner scrollbar limited discoverability: users had to scroll within the widget to see available options. On mobile viewports, the narrow space combined with internal scrolling reduced usability. Additionally, the grid displayed three columns regardless of screen size, which reduced readability on smaller devices.
+
+## The solution
+
+I addressed this in three dimensions: **interaction design**, **content audit**, and **responsive layout**.
+
+### 1. Replacing the inner scrollbar with pagination
+
+The first fix was architectural. Instead of letting tiles scroll within a fixed container, I designed a paginator using OJET components styled with the Redwood design system. This eliminated the inner scrollbar entirely while keeping all tiles visible on every page.
+
+<Image src={paginatorDesign} alt="New paginator design showing 'Page 1 of 34 (1-9 of 305 items)' with numbered page links" />
+
+The paginator shows context at a glance: which page you're on, how many items total, and numbered quick-links to jump between sections. This made it easy to find recipes without the cognitive load of a hidden scrollbar.
+
+### 2. Auditing and fixing 300+ tiles
+
+With pagination now in place, I used AI to audit all 305+ tiles for quality issues: duplicates, broken links, and missing metadata. The audit found **20+ duplicate tiles** and **dozens of misbehaving links**.
+
+I reported these findings to the product team and the content owners so they could decide on consolidation and fixes. This revealed gaps in how recipes were being maintained and created a baseline for ongoing quality.
+
+### 3. Making the grid responsive
+
+The original design displayed three tiles per row on all screen sizes. On mobile, this made text unreadable and forced horizontal scrolling within tiles.
+
+I refactored the CSS to use a responsive grid:
+- **Desktop:** 3 columns (original width, full readability)
+- **Tablet:** 2 columns
+- **Mobile:** 1 column (full width, easy to scan)
+
+<Image src={desktopBefore} alt="Desktop view before redesign showing 3-column grid with 'Recipes and Accelerators' heading and filter icon" />
+
+<Image src={mobileAfter} alt="Mobile view after redesign showing 1-column layout with single tile per row" />
+
+### 4. Improving the filter affordance
+
+User feedback showed that the filter button—an icon with no label—was not discoverable. I added a "Filter" label to the button, making its function immediately clear.
+
+<Image src={desktopAfter} alt="Desktop view after redesign with labeled 'Filter' button and improved spacing" />
+
+## What's next
+
+The next phase is expanding the category filters. Currently, recipes are grouped into a single "All" category dropdown. The roadmap calls for additional filter dimensions—by system type, integration pattern, and use case—to make discovery even faster for users searching for specific types of connections.
+
+## Public link
+
+You can use the adapter finder on the live docs site: [Oracle Integration 3 adapter finder](https://docs.oracle.com/en/cloud/paas/application-integration/find-adapters.html)

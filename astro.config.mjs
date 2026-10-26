@@ -82,7 +82,13 @@ export default defineConfig({
 			],
 			sidebar: [
 				{ label: 'Work', slug: 'projects' },
-				{ label: 'Oracle', slug: 'oracle' },
+				{
+					label: 'Oracle',
+					items: [
+						{ label: 'Overview', slug: 'oracle' },
+						{ label: 'Adapter Finder', slug: 'oracle/adapter-finder' },
+					],
+				},
 				{
 					label: 'VENU',
 					items: [

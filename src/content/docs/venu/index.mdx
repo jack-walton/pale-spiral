@@ -9,39 +9,68 @@ head:
 import { LinkButton, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 **Role:** UX writer and content designer (solo project) ·
-**Scope:** Product copy, terminology, user guide, release notes ·
-**Tools:** Figma, Astro, Starlight
+**Scope:** Product copy, terminology, content audit, user guide, release notes ·
+**Tools:** Oracle JET, Cursor, Notion, Astro, Starlight
 
 ## Why this project exists
 
-VENU is a speculative ticketing product I designed in Figma, with a user guide
-and release notes written for that prototype. I published it because the
+VENU is a ticketing product I designed, wrote, and shipped, with a user guide
+and release notes written against the live app. I built it because the
 healthcare apps I worked on in Oracle Design are not mine to show. The content
 problems are the same ones I solve at work: naming things consistently, breaking
-a purchase into steps a stranger can follow, and telling people what changed when
+a task into steps a stranger can follow, and telling people what changed when
 the product moves.
 
-Building the prototype first was the point. Writing UI copy against a real
-layout forces decisions that a copy deck lets you postpone — how long a button
-label can be before it wraps, what the empty Resale balance says before a user
-has sold anything, whether "Transferred" and "Sold" are distinct enough to be
-separate tabs.
+## From prototype to product
+
+VENU started as a Figma prototype. Partway through, I decided to build and
+deploy it instead — [app.techcomm.dev](https://app.techcomm.dev) is a real,
+live app, not a set of linked frames.
+
+A prototype is a reasonable scope for a portfolio piece, but it puts a ceiling
+on what the content work can demonstrate. Writing against a static screen means
+your copy never meets the constraints a real build imposes: what an empty state
+actually renders as, whether a label still reads right once it is wired to real
+data instead of a mockup. Building the app let me practice a discipline I do not
+usually get to apply end to end at Oracle, where I write into systems other
+people built: deciding how content and code stay in sync, not only supplying
+the words.
+
+## Keeping content and code in sync
+
+I keep a content inventory in Notion, organized by user journey and keyed to
+the file each string lives in — 161 strings across five journeys: **Sign In**,
+**Find and Claim**, **Transfer Tickets**, **Hold Tickets**, and **Account and
+Help**. Editing a string in Notion and asking Cursor to sync it is the same
+habit as editing a topic in a docs library and filing the review — the tool is
+lighter, but the discipline of one source of truth per string is the same one
+I apply to the SOA Suite documentation at Oracle.
+
+That discipline caught a real gap while I was writing this case study. I had
+rebuilt sign-in as a passwordless, magic-link flow, but shipped the change
+straight to the live app without committing it — the inventory, and the
+repository behind it, still described the old password form. Reconciling the
+three meant pulling the actual component source rather than trusting any one
+record, updating the stale strings, and adding the ones that were missing
+entirely. It is the same failure mode as the duplicate and broken tiles I
+found auditing the Oracle Integration adapter finder: documentation drifts
+from what actually shipped unless something forces the two back together.
 
 ## What's here
 
 <CardGrid>
 	<LinkCard
 		title="User Guide"
-		description="Task documentation for the prototype: account setup, search, purchase, and resale."
+		description="Task documentation for the live app: find events, claim tickets, and transfer them."
 		href="/venu/guide/"
 	/>
 	<LinkCard
 		title="Release Notes"
-		description="Launch notes for the prototype, written in the register a shipped product would use."
+		description="Launch notes for Version 1.0, written in the register a shipped product would use."
 		href="/venu/release-notes/"
 	/>
 </CardGrid>
 
-<LinkButton href="https://gills-crank-13926490.figma.site/" target="_blank" variant="secondary" icon="external">
-	Try the Prototype
+<LinkButton href="https://app.techcomm.dev" target="_blank" variant="secondary" icon="external">
+	Try the App
 </LinkButton>
