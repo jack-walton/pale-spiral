@@ -11,8 +11,8 @@ import desktopAfter from '../../../assets/images/finder-app/2026-10-07_13-35-32.
 import mobileAfter from '../../../assets/images/finder-app/2026-10-07_13-36-06.png';
 
 **Role:** User assistance developer ·
-**Scope:** Accessibility fix (removed inner scroll), responsive redesign, content audit (300+ tiles), UX improvements ·
-**Tools:** OJET, Redwood design system, AI audit tools, CSS
+**Scope:** Accessibility fix (removed inner scroll), responsive redesign, content audit (300+ tiles), search, UX improvements ·
+**Tools:** Oracle JET, Redwood design system
 
 ## The problem
 
@@ -22,11 +22,11 @@ The inner scrollbar limited discoverability: users had to scroll within the widg
 
 ## The solution
 
-I addressed this in three dimensions: **interaction design**, **content audit**, and **responsive layout**.
+I addressed this in four areas: **interaction design**, **content audit**, **responsive layout**, and **search**.
 
 ### 1. Replacing the inner scrollbar with pagination
 
-The first fix was architectural. Instead of letting tiles scroll within a fixed container, I designed a paginator using OJET components styled with the Redwood design system. This eliminated the inner scrollbar entirely while keeping all tiles visible on every page.
+Instead of letting tiles scroll within a fixed container, I designed a paginator that follows the Redwood design system. This eliminated the inner scrollbar entirely while keeping all tiles visible on every page.
 
 <Image src={paginatorDesign} alt="New paginator design showing 'Page 1 of 34 (1-9 of 305 items)' with numbered page links" />
 
@@ -34,32 +34,71 @@ The paginator shows context at a glance: which page you're on, how many items to
 
 ### 2. Auditing and fixing 300+ tiles
 
-With pagination now in place, I used AI to audit all 305+ tiles for quality issues: duplicates, broken links, and missing metadata. The audit found **20+ duplicate tiles** and **dozens of misbehaving links**.
+With pagination now in place, I audited all 305+ tiles for quality issues: duplicates, broken links, and missing metadata. The audit surfaced **29 pairs of tiles with duplicate titles**, legacy tiles that opened generic landing pages, and deep links that pointed to anchors that no longer existed.
 
-I reported these findings to the product team and the content owners so they could decide on consolidation and fixes. This revealed gaps in how recipes were being maintained and created a baseline for ongoing quality.
+I shared the findings with the product team and content owners, then made the fixes in the recipe catalog myself.
+
+**Duplicates.** Each duplicate pair was a legacy tile alongside a newer tile from the consolidated recipes guide. For every pair, I kept the consolidated-guide tile and its documentation link, removed the legacy tile, and carried the useful details from the legacy tile over to the one I kept: its fuller description, search keywords, application names, and adapters. Users lose nothing they could search for before, and every result now leads to current documentation. I also removed three more legacy duplicates that opened generic landing pages instead of a specific recipe, and carried their details over the same way.
+
+**Dead ends.** Four tiles had broken or misdirected links and had no matching recipe in the consolidated guide, so I removed them instead of pointing them somewhere misleading.
+
+**Broken deep links.** I fixed four tiles whose links loaded the right page but not the right topic:
+- Two used title-based anchors that no longer existed. They now link directly to the topic.
+- One used an invalid fragment. I replaced it with the correct anchor.
+- One pointed to a legacy URL that dropped the fragment on redirect. It now links directly to the current topic.
+
+I checked every new link against the live Oracle documentation to confirm that it loads the intended topic.
 
 ### 3. Making the grid responsive
 
 The original design displayed three tiles per row on all screen sizes. On mobile, this made text unreadable and forced horizontal scrolling within tiles.
 
-I refactored the CSS to use a responsive grid:
+I made the grid responsive:
 - **Desktop:** 3 columns (original width, full readability)
 - **Tablet:** 2 columns
 - **Mobile:** 1 column (full width, easy to scan)
 
 <Image src={desktopBefore} alt="Desktop view before redesign showing 3-column grid with 'Recipes and Accelerators' heading and filter icon" />
 
+On mobile, the before-and-after difference is the clearest:
+
+<Image src={mobileBefore} alt="Mobile view before redesign: 305 items in a cramped 3-column grid with truncated titles and a second scrollbar inside the tile area" />
+
 <Image src={mobileAfter} alt="Mobile view after redesign showing 1-column layout with single tile per row" />
 
 ### 4. Improving the filter affordance
 
-User feedback showed that the filter button—an icon with no label—was not discoverable. I added a "Filter" label to the button, making its function immediately clear.
+The filter button was an icon with no label, which made it easy to miss. I added a "Filter" label to the button, making its function immediately clear.
 
 <Image src={desktopAfter} alt="Desktop view after redesign with labeled 'Filter' button and improved spacing" />
 
+### 5. Making search order-independent
+
+The search box treated the whole query as one phrase. A user looking for the recipe "Approve invoices using OCI AI Services" could type **OCI AI** and find it, but **AI OCI** returned nothing, because those words never appear in that order. People don't remember a recipe's exact title. They remember a couple of words from it.
+
+I rewrote the search so each word counts on its own. A recipe appears when every word in the query matches somewhere a user would expect: the title, description, keywords, category, type, application name, or adapter. Capitalization doesn't matter, and the search box looks and works the same as before.
+
+I tested it against the cases most likely to break:
+- **Word order:** "AI OCI" and "OCI AI" return the same recipe.
+- **Mixed case:** capitalization doesn't change the results.
+- **Matches across fields:** one word can match the title while another matches the description, keywords, or adapter.
+- **Edge cases:** single-word searches still work, and an empty or spaces-only query shows the full catalog.
+- **Everything around search:** category filtering, pagination, result counts, and page sizes at each screen width still behave correctly.
+
+I also ran the same checks against the original search to confirm that they caught the bug before the fix.
+
+## Results
+
+- **No inner scrollbar.** Every tile on a page is visible without scrolling inside the widget, and the paginator shows where you are in the catalog.
+- **A cleaner catalog.** All 29 duplicate-title pairs are resolved. No two recipes share a title.
+- **No dead ends.** Seven tiles that led to generic landing pages or broken links are gone, and four deep links now open the exact topic they describe.
+- **Nothing lost in search.** Keywords, descriptions, application names, and adapters from the removed tiles live on in the tiles that replaced them.
+- **Search that matches how people remember.** Words can be typed in any order and in any case, and each one can match a different part of a recipe.
+- **Readable on any screen.** The grid adapts from three columns to one, and the filter button says what it does.
+
 ## What's next
 
-The next phase is expanding the category filters. Currently, recipes are grouped into a single "All" category dropdown. The roadmap calls for additional filter dimensions—by system type, integration pattern, and use case—to make discovery even faster for users searching for specific types of connections.
+The next phase is expanding the category filters. Currently, recipes are grouped into a single "All" category dropdown. More filter categories will make it faster to find a specific type of connection.
 
 ## Public link
 
