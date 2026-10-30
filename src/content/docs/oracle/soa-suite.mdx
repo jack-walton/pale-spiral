@@ -1,32 +1,32 @@
 ---
 title: 'Case Study: Maintaining the Oracle SOA Suite Documentation'
-description: How I repair, modernize, and plan maintenance for a documentation library that spans five products and many releases.
+description: How I repair, modernize, and maintain a documentation library that spans five products and many releases.
 ---
 
 **Role:** User assistance developer ·
-**Scope:** Link and navigation repair, release modernization, reused-content fixes, triage, maintenance planning ·
-**Tools:** DITA XML, bookmaps, link audits, issue tracking
+**Scope:** Link audit (24 broken links), reused-content repair, release modernization, triage, maintenance planning ·
+**Tools:** DITA XML, bookmaps, issue tracker
 
 ## The problem
 
 I own the documentation for Oracle SOA Suite and its related products: Business
 Process Management, Service Bus, Managed File Transfer, and SOA Suite on
-Marketplace, along with SOA Suite on Kubernetes. The library has grown over many releases, and
-content carried forward from earlier versions brings problems with it: outdated
-release references, broken links, incomplete procedures, and publication
-defects.
+Marketplace. The library has grown over many releases. Content carried forward
+from earlier versions brings outdated release references, broken links,
+incomplete procedures, and publication defects with it.
 
-The hard part is that inherited instructions are often partly right. A
-procedure can be correct in substance while pointing to a discontinued
-interface, an obsolete directory, or documentation for a different release.
-Rewriting everything would throw away accurate information. Leaving it alone
-sends readers down a path that no longer works.
+Inherited instructions are often partly right. A procedure can be correct in
+substance while pointing to a discontinued interface, an obsolete directory, or
+documentation for a different release. Rewriting everything would throw away
+accurate information. Leaving it alone sends readers down a path that no longer
+works.
 
 ## The solution
 
-My approach for every fix is the same. I establish what the reader is trying to
-do, identify which parts of the existing guidance are still valid, and make the
-smallest complete correction the evidence supports.
+I addressed this in four areas: **links and navigation**, **reused content**,
+**outdated procedures**, and **the maintenance process** itself. For every fix,
+I establish what the reader is trying to do, keep what is still valid, and make
+the smallest complete correction the evidence supports.
 
 ### 1. Repairing links and navigation
 
@@ -34,41 +34,31 @@ I repaired navigation across the upgrade, administration, and development
 documentation: backup and recovery references, troubleshooting links, missing
 administration links, and cross-references that resolved to the wrong release.
 
-Some of these took more than replacing a URL. A topic reused across several
-publications could send readers to an unexpected destination even when its
-source reference looked correct. Fixing those meant tracing how the source
-topic, the publication it appeared in, and the generated link fit together.
-
 For the SOA Suite on Kubernetes documentation, I ran a book-wide link audit. It
-found **24 broken links across 13 pages**. I updated each one with a working
-destination and descriptive link text. While I was in those topics, I cleaned up
-list, step, and semantic markup and kept existing topic identifiers and metadata
-intact. I verify the rebuilt output, including the destination content and
-anchors, not only how the page looks.
+found **24 broken links across 13 pages**. I gave each one a working
+destination and descriptive link text. While I was in those topics, I cleaned
+up list, step, and semantic markup and kept existing topic identifiers intact.
 
-### 2. Making the smallest complete correction
+I verify the rebuilt output, not only the source. That means opening each
+destination and checking that its anchor lands on the right content.
 
-The Maven documentation repeated setup information that readers had to
-reconcile with the main installation guide. I replaced a local installation
-section with a link to the canonical guidance, corrected configuration paths,
-and repaired links to the continuous integration documentation.
+### 2. Fixing shared causes in reused content
 
-In the upgrade instructions, I corrected paths, terminology, and release
-references. Two reported problems with custom XPath classes turned out to come
-from the same reused topic, so one correction fixed both publications.
-
-### 3. Fixing defects below the visible page
+The library reuses topics across publications. A defect in one source topic
+shows up everywhere that topic appears, and a link that looks correct in source
+can resolve somewhere unexpected in one publication.
 
 In the SOA and BPM upgrade material, readers saw missing notes, malformed
-formatting, and broken step lists. These looked like separate
-formatting problems. They all traced back to DITA content references that the
-publication no longer resolved.
+formatting, and broken step lists. They looked like separate formatting
+problems. All of them traced back to DITA content references that the
+publication no longer resolved. I investigated the source dependencies, updated
+the bookmap, restructured the XML, and tested the output. One repair fixed the
+defects across the upgrade documentation.
 
-I investigated the source dependencies, updated the bookmap, restructured the
-XML, and tested the output. Fixing the shared cause repaired the visible
-defects across the upgrade documentation at once.
+The same thinking applied to two reported problems with custom XPath classes.
+Both came from one reused topic, so one correction fixed both publications.
 
-### 4. Keeping procedures current for each environment
+### 3. Modernizing outdated procedures
 
 WebLogic Server replaced its earlier administration console with WebLogic
 Remote Console. I added version-appropriate troubleshooting content and updated
@@ -77,74 +67,48 @@ environment.
 
 These updates vary in size. Renaming a console is an editorial change. A
 procedure that follows a different navigation tree needs technical validation.
-I plan the work so that distinction stays visible and small fixes don't wait on
-large ones.
+For anything that changes what an administrator does to a production system, I
+narrow the report to a question I can answer: which release and configuration
+are affected, which step fails, and what evidence supports the correction.
 
-For SOA Suite on Marketplace, I turned technical handoff material into
-customer-facing topics. I reconciled release names and component information,
-got the content reviewed, and checked navigation in the published output.
+I also replaced duplicated Maven setup instructions with a link to the
+canonical installation guidance, and turned engineering handoff material for
+SOA Suite on Marketplace into customer-facing topics.
 
-### 5. Turning broad reports into bounded questions
+### 4. Running maintenance as a process
 
-Some upgrade reports describe a short wording change that would alter what an
-administrator does to a production system. Before I change anything, I narrow
-the report to a question I can answer: which release and configuration are
-affected, which step fails, what evidence supports the correction, and what
-validation it needs before publication.
+Not every report needs a content change. I check each one against the
+published documentation, merge duplicates, recognize fixes that are already
+live, and identify when another team owns the page. When a request concerned a
+public page owned by a website team, I routed it to that team and documented
+the path for future handoffs.
 
-The same discipline applies to reference content. For the Kubernetes domain
-parameters, I confirmed with engineering which setting was unused, that the
-remaining one had no default, and which script readers should use. Each fix
-tracks proposed wording, technical evidence, approval, and publication as
-separate milestones, so an approved draft is never mistaken for a published
-change.
+I plan the work with a weekday review that reconciles each assigned item with
+its latest evidence: technical decisions, review outcomes, dependencies, and
+deadlines. The plan groups related fixes into work blocks, orders them by due
+date, and flags quick wins. It holds a few rules that matter in documentation
+delivery:
 
-### 6. Triaging every request
-
-Not every report needs a content change. I check each one against the published
-documentation, merge duplicates, recognize corrections that are already live,
-and identify when another team owns the page.
-
-When a request concerned a public page owned by a website team, I followed the
-ownership path and submitted the change through that team. I then documented
-the routing for future handoffs. Closing a ticket doesn't count as proof that a
-page outside my control has changed.
-
-### 7. Planning the work
-
-I built a maintenance plan backed by a recurring weekday review. Each review
-reconciles my assigned work with its latest evidence: technical decisions,
-review outcomes, dependencies, deadlines, and next actions.
-
-The plan sorts work into backlog, in progress, waiting on an answer or review,
-and recently completed. It groups related fixes into work blocks, orders them
-by due date, and flags quick wins. A quick win accounts for the whole effort of
-finding the source, making the change, and validating it. A precise path fix
-qualifies. Rebuilding a workflow doesn't.
-
-The plan holds a few rules that matter in documentation delivery:
-
-- Issue status sets the category. Comments and discussion explain the current situation.
 - A positive review doesn't mean the change is published.
-- A closed issue doesn't erase a remaining deployment step.
-- Missing deadlines and incomplete data are flagged, not guessed.
+- A closed ticket doesn't mean a page outside my control has changed.
+- Missing deadlines and incomplete information get flagged, not guessed.
 
-I review each updated plan before it goes out.
-
-### 8. Making the work easy to hand off
-
-I'm turning what I've learned into onboarding and handoff material: environment
-setup, publishing responsibilities, review expectations, and how to request
-changes the documentation team doesn't control. The next writer starts
-with a map instead of a backlog.
+I'm turning what I've learned into onboarding material, so the next writer
+starts with a map instead of a backlog.
 
 ## Results
 
-- **Five products, one approach.** Fixes across SOA Suite, BPM, Service Bus, Managed File Transfer, and SOA Suite on Marketplace follow the same evidence-based process.
-- **24 broken links fixed** across 13 pages of the Kubernetes documentation.
-- **Shared causes, single fixes.** One correction to a reused topic fixed two publications, and one bookmap repair fixed missing notes, formatting, and steps across the upgrade documentation.
-- **Less duplication.** Maven setup now points to canonical installation guidance instead of repeating it.
-- **A plan that reflects reality.** Work is tracked from report to publication, and nothing counts as done until it is live.
+- **24 broken links fixed** across 13 pages of the Kubernetes documentation, each checked in the rebuilt output.
+- **Shared causes, single fixes.** One bookmap repair fixed missing notes, formatting, and steps across the upgrade documentation. One topic correction fixed two publications.
+- **Less duplication.** Maven setup points to canonical installation guidance instead of repeating it.
+- **Clear tool guidance.** Readers can tell which WebLogic management tool applies to their environment.
+- **Work tracked to publication.** Nothing counts as done until the change is live.
+
+## What's next
+
+I'm continuing the move to WebLogic Remote Console across the remaining
+administration procedures, and reviewing screenshots carried over from the
+earlier console.
 
 ## Public link
 
