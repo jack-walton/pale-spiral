@@ -8,7 +8,6 @@ A portfolio site built with Astro + Starlight to showcase technical writing and 
 - `src/content/docs/projects/`: the Work page that links the case studies
 - `src/content/docs/oracle/`: Oracle overview and the adapter finder case study
 - `src/content/docs/venu/`: VENU case study, user guide, and release notes
-- `src/content/docs/academia/`: academic and research writing
 - `.vale/`: Vale prose linter with custom Walton style rules
 
 ## Project structure

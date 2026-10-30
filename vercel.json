@@ -23,6 +23,8 @@
 		{ "source": "/ai/dita-task/", "destination": "/projects/", "permanent": true },
 		{ "source": "/ai/qa", "destination": "/projects/", "permanent": true },
 		{ "source": "/ai/qa/", "destination": "/projects/", "permanent": true },
+		{ "source": "/academia", "destination": "/", "permanent": true },
+		{ "source": "/academia/:path*", "destination": "/", "permanent": true },
 		{ "source": "/venu/case-study", "destination": "/venu/", "permanent": true },
 		{ "source": "/venu/case-study/", "destination": "/venu/", "permanent": true },
 		{ "source": "/venu/navigate-the-app", "destination": "/venu/guide/#navigate-the-app", "permanent": true },
