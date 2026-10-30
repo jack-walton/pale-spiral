@@ -1,76 +1,81 @@
 ---
 title: 'Case Study: Writing VENU'
-description: How I designed the content for a speculative consumer ticketing app — terminology, task flows, and the user guide that documents it.
+description: How I designed, wrote, and shipped a ticketing app, and kept its content, code, and documentation in sync.
 head:
   - tag: title
     content: VENU
 ---
 
-import { LinkButton, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import discoverImg from '../../../assets/images/VENU/app/discover.jpg';
 
 **Role:** UX writer and content designer (solo project) ·
-**Scope:** Product copy, terminology, content audit, user guide, release notes ·
-**Tools:** Oracle JET, Cursor, Notion, Astro, Starlight
+**Scope:** Product copy, terminology, content inventory (161 strings), user guide, release notes ·
+**Tools:** Oracle JET, Notion, Astro, Starlight
 
-## Why this project exists
+## The problem
 
-VENU is a ticketing product I designed, wrote, and shipped, with a user guide
-and release notes written against the live app. I built it because the
-healthcare apps I worked on in Oracle Design are not mine to show. The content
-problems are the same ones I solve at work: naming things consistently, breaking
-a task into steps a stranger can follow, and telling people what changed when
-the product moves.
+VENU is a web app for finding events, claiming guest-list tickets, and
+transferring tickets to someone else when plans change. It started as a Figma
+prototype.
 
-## From prototype to product
+Copy written against static frames never meets the constraints of a real build:
+what an empty state actually renders as, or whether a label still reads right
+once it shows real data instead of a mockup. To write content that holds up, I
+needed a product that runs.
 
-VENU started as a Figma prototype. Partway through, I decided to build and
-deploy it instead — [app.techcomm.dev](https://app.techcomm.dev) is a real,
-live app, not a set of linked frames.
+## The solution
 
-A prototype is a reasonable scope for a portfolio piece, but it puts a ceiling
-on what the content work can demonstrate. Writing against a static screen means
-your copy never meets the constraints a real build imposes: what an empty state
-actually renders as, whether a label still reads right once it is wired to real
-data instead of a mockup. Building the app let me practice a discipline I do not
-usually get to apply end to end at Oracle, where I write into systems other
-people built: deciding how content and code stay in sync, not only supplying
-the words.
+I approached this in three areas: **building the product**, **managing the
+content**, and **documenting it**.
 
-## Keeping content and code in sync
+### 1. Building the app
 
-I keep a content inventory in Notion, organized by user journey and keyed to
-the file each string lives in — 161 strings across five journeys: **Sign In**,
-**Find and Claim**, **Transfer Tickets**, **Hold Tickets**, and **Account and
-Help**. Editing a string in Notion and asking Cursor to sync it is the same
-habit as editing a topic in a docs library and filing the review — the tool is
-lighter, but the discipline of one source of truth per string is the same one
-I apply to the SOA Suite documentation at Oracle.
+I built and deployed VENU with Oracle JET. It is live at
+[app.techcomm.dev](https://app.techcomm.dev), with sign-in, an event catalog,
+ticket claiming, and transfers between accounts.
 
-That discipline caught a real gap while I was writing this case study. I had
-rebuilt sign-in as a passwordless, magic-link flow, but shipped the change
-straight to the live app without committing it — the inventory, and the
-repository behind it, still described the old password form. Reconciling the
-three meant pulling the actual component source rather than trusting any one
-record, updating the stale strings, and adding the ones that were missing
-entirely. It is the same failure mode as the duplicate and broken tiles I
-found auditing the Oracle Integration adapter finder: documentation drifts
-from what actually shipped unless something forces the two back together.
+<Image src={discoverImg} alt="The VENU Discover screen showing search, date and genre filters, and a grid of featured events" />
 
-## What's here
+Building it meant every string had to survive real data, real empty states, and
+small screens, and it meant I decided how content and code stay in sync, not
+only what the words say.
 
-<CardGrid>
-	<LinkCard
-		title="User Guide"
-		description="Task documentation for the live app: find events, claim tickets, and transfer them."
-		href="/venu/guide/"
-	/>
-	<LinkCard
-		title="Release Notes"
-		description="Launch notes for Version 1.0, written in the register a shipped product would use."
-		href="/venu/release-notes/"
-	/>
-</CardGrid>
+### 2. Keeping one source of truth for every string
 
-<LinkButton href="https://app.techcomm.dev" target="_blank" variant="secondary" icon="external">
-	Try the App
-</LinkButton>
+I keep a content inventory in Notion: **161 strings** across five user
+journeys — **Sign In**, **Find and Claim**, **Transfer Tickets**, **Hold
+Tickets**, and **Account and Help**. Each string is keyed to the file it lives
+in, so a change in the inventory maps to exactly one place in the app.
+
+This is the same discipline I apply to the SOA Suite documentation at Oracle:
+one owner and one source for each piece of content.
+
+### 3. Reconciling content with what shipped
+
+When I rebuilt sign-in as a passwordless, magic-link flow, the inventory and
+the repository still described the old password form. I reconciled all three
+against the component source: I updated the stale strings and added the ones
+that were missing.
+
+It is the same problem I found auditing the
+[Oracle Integration adapter finder](/oracle/adapter-finder/): documentation
+drifts from what shipped unless a process brings the two back together.
+
+### 4. Documenting the app
+
+I wrote a task-based user guide and Version 1.0 release notes against the live
+app. The guide covers signing in, finding events, claiming tickets, and sending
+and accepting transfers. The release notes describe what launched in the voice
+a shipped product would use.
+
+## Results
+
+- **A live product.** VENU runs at a public URL, and the guide and release notes are written against it.
+- **One source of truth.** All 161 strings live in a single inventory, organized by user journey and mapped to their files.
+- **No drift.** The magic-link sign-in is reflected in the app, the inventory, the repository, and the guide.
+
+## Live app
+
+You can use VENU at [app.techcomm.dev](https://app.techcomm.dev). Select
+**Continue as guest** to explore with sample tickets, no account required.
