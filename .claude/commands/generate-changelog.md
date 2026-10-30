@@ -21,7 +21,7 @@ title: Change Log
 
 ## Guidelines
 
-- Write from the customer's perspective — focus on what changed for them, not internal implementation details
+- Write from the customer's perspective. Focus on what changed for them, not internal implementation details
 - Use plain language; avoid engineering jargon
 - Past tense, active voice
 - No em-dashes
@@ -30,6 +30,6 @@ title: Change Log
 
 ## Changes
 
-After writing `changelog.mdx`, update `README.md` to reflect any structural changes to the project — new sections added, pages removed, or renamed directories. Do not rewrite sections that are still accurate.
+After writing `changelog.mdx`, update `README.md` to reflect any structural changes to the project, such as new sections added, pages removed, or renamed directories. Do not rewrite sections that are still accurate.
 
 $ARGUMENTS

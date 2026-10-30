@@ -1,6 +1,6 @@
 ---
 title: 'Case Study: Oracle Integration Adapter Finder Redesign'
-description: How I improved accessibility and discoverability by replacing an inner scrollbar with pagination, auditing 300+ tiles, and making the grid responsive.
+description: How I made a 300+ tile catalog easier to browse and search with pagination, a content audit, a responsive grid, and order-independent search.
 ---
 
 import { Image } from 'astro:assets';
@@ -17,9 +17,9 @@ import categoryBefore from '../../../assets/images/finder-app/category-filter-be
 
 ## The problem
 
-The adapter finder is an embedded application on the Oracle Integration 3 documentation site—a searchable catalog of 305+ recipes and adapters that connect Oracle Integration to external systems. It shipped as an iframe with an inner scrollbar within the tile grid.
+The adapter finder is an embedded application on the Oracle Integration 3 documentation site: a searchable catalog of 305+ recipes and adapters that connect Oracle Integration to external systems. It shipped as an iframe with an inner scrollbar within the tile grid.
 
-The inner scrollbar limited discoverability: users had to scroll within the widget to see available options. On mobile viewports, the narrow space combined with internal scrolling reduced usability. Additionally, the grid displayed three columns regardless of screen size, which reduced readability on smaller devices.
+The inner scrollbar limited discoverability: users had to scroll within the widget to see available options. On mobile viewports, the narrow space combined with internal scrolling made the catalog hard to use. The grid also displayed three columns on every screen size, which made tiles hard to read on smaller devices.
 
 ## The solution
 
@@ -27,7 +27,7 @@ I addressed this in four areas: **interaction design**, **content audit**, **res
 
 ### 1. Replacing the inner scrollbar with pagination
 
-Instead of letting tiles scroll within a fixed container, I designed a paginator that follows the Redwood design system. This eliminated the inner scrollbar entirely while keeping all tiles visible on every page.
+Instead of letting tiles scroll within a fixed container, I designed a paginator that follows the Redwood design system. This eliminated the inner scrollbar while keeping all tiles visible on every page.
 
 <Image src={paginatorDesign} alt="New paginator design showing 'Page 1 of 34 (1-9 of 305 items)' with numbered page links" />
 
@@ -39,14 +39,16 @@ With pagination now in place, I audited all 305+ tiles for quality issues: dupli
 
 I shared the findings with the product team and content owners, then made the fixes in the recipe catalog myself.
 
-**Duplicates.** Each duplicate pair was a legacy tile alongside a newer tile from the consolidated recipes guide. For every pair, I kept the consolidated-guide tile and its documentation link, removed the legacy tile, and carried the useful details from the legacy tile over to the one I kept: its fuller description, search keywords, application names, and adapters. Users lose nothing they could search for before, and every result now leads to current documentation. I also removed three more legacy duplicates that opened generic landing pages instead of a specific recipe, and carried their details over the same way.
+**Duplicates.** Each duplicate pair was a legacy tile alongside a newer tile from the consolidated recipes guide. For every pair, I kept the consolidated-guide tile and its documentation link, removed the legacy tile, and carried the useful details from the legacy tile over to the one I kept: its fuller description, search keywords, application names, and adapters. Users lose nothing they could search for before, and every result now leads to current documentation.
+
+I also removed three more legacy duplicates that opened generic landing pages instead of a specific recipe, and carried their details over the same way.
 
 **Dead ends.** Four tiles had broken or misdirected links and had no matching recipe in the consolidated guide, so I removed them instead of pointing them somewhere misleading.
 
 **Broken deep links.** I fixed four tiles whose links loaded the right page but not the right topic:
-- Two used title-based anchors that no longer existed. They now link directly to the topic.
+- Two used title-based anchors that no longer existed. They now link to the topic itself.
 - One used an invalid fragment. I replaced it with the correct anchor.
-- One pointed to a legacy URL that dropped the fragment on redirect. It now links directly to the current topic.
+- One pointed to a legacy URL that dropped the fragment on redirect. It now links to the current topic.
 
 I checked every new link against the live Oracle documentation to confirm that it loads the intended topic.
 
@@ -69,13 +71,15 @@ On mobile, the before-and-after difference is the clearest:
 
 ### 4. Improving the filter affordance
 
-The filter button was an icon with no label, which made it easy to miss. I added a "Filter" label to the button, making its function immediately clear.
+The filter button was an icon with no label, which made it easy to miss. I added a "Filter" label to the button, so its function is clear at a glance.
 
 <Image src={desktopAfter} alt="Desktop view after redesign with labeled 'Filter' button and improved spacing" />
 
 ### 5. Making search order-independent
 
-The search box treated the whole query as one phrase. A user looking for the recipe "Approve invoices using OCI AI Services" could type **OCI AI** and find it, but **AI OCI** returned nothing, because those words never appear in that order. People don't remember a recipe's exact title. They remember a couple of words from it.
+The search box treated the whole query as one phrase. A user looking for the recipe "Approve invoices using OCI AI Services" could type **OCI AI** and find it, but **AI OCI** returned nothing, because those words never appear in that order.
+
+People don't remember a recipe's exact title. They remember a couple of words from it.
 
 I rewrote the search so each word counts on its own. A recipe appears when every word in the query matches somewhere a user would expect: the title, description, keywords, category, type, application name, or adapter. Capitalization doesn't matter, and the search box looks and works the same as before.
 
@@ -84,7 +88,7 @@ I tested it against the cases most likely to break:
 - **Mixed case:** capitalization doesn't change the results.
 - **Matches across fields:** one word can match the title while another matches the description, keywords, or adapter.
 - **Edge cases:** single-word searches still work, and an empty or spaces-only query shows the full catalog.
-- **Everything around search:** category filtering, pagination, result counts, and page sizes at each screen width still behave correctly.
+- **Everything around search:** category filtering, pagination, result counts, and page sizes at each screen width still behave as before.
 
 I also ran the same checks against the original search to confirm that they caught the bug before the fix.
 

@@ -20,7 +20,7 @@ transferring tickets to someone else when plans change. It started as a Figma
 prototype.
 
 Copy written against static frames never meets the constraints of a real build:
-what an empty state actually renders as, or whether a label still reads right
+what an empty state renders as, or whether a label still reads right
 once it shows real data instead of a mockup. To write content that holds up, I
 needed a product that runs.
 
@@ -38,15 +38,15 @@ ticket claiming, and transfers between accounts.
 <Image src={discoverImg} alt="The VENU Discover screen showing search, date and genre filters, and a grid of featured events" />
 
 Building it meant every string had to survive real data, real empty states, and
-small screens, and it meant I decided how content and code stay in sync, not
+small screens. It also meant I decided how content and code stay in sync, not
 only what the words say.
 
 ### 2. Keeping one source of truth for every string
 
 I keep a content inventory in Notion: **161 strings** across five user
-journeys — **Sign In**, **Find and Claim**, **Transfer Tickets**, **Hold
+journeys: **Sign In**, **Find and Claim**, **Transfer Tickets**, **Hold
 Tickets**, and **Account and Help**. Each string is keyed to the file it lives
-in, so a change in the inventory maps to exactly one place in the app.
+in, so a change in the inventory maps to one place in the app.
 
 This is the same discipline I apply to the SOA Suite documentation at Oracle:
 one owner and one source for each piece of content.

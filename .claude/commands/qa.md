@@ -1,4 +1,4 @@
-Perform a quality assurance pass on this site's content. Fix all issues found. Do not report and wait — make the edits.
+Perform a quality assurance pass on this site's content. Fix all issues found. Do not report and wait. Make the edits.
 
 ## Step 1: Run Vale
 
@@ -12,7 +12,7 @@ Fix every finding in place. Then run Vale again to confirm zero results before c
 
 Read every `.mdx` file under `src/content/docs/`, `README.md`, and every `.md` file under `.claude/commands/`. Apply the rules below.
 
-Do not apply voice rules to: the text of numbered `<Steps>` commands, resume bullet points, code blocks, bash commands, component markup, image alt text, frontmatter, changelog entries, direct quotations, or prompt output-format templates in skill files. Apply them to everything else — prose paragraphs, section descriptions, introductory sentences before and after steps, and any other running text.
+Do not apply voice rules to: the text of numbered `<Steps>` commands, resume bullet points, code blocks, bash commands, component markup, image alt text, frontmatter, changelog entries, direct quotations, or prompt output-format templates in skill files. Apply them to everything else: prose paragraphs, section descriptions, introductory sentences before and after steps, and any other running text.
 
 ### Sentences
 
@@ -40,8 +40,8 @@ Do not apply voice rules to: the text of numbered `<Steps>` commands, resume bul
 ### What not to change
 
 - Do not add personality, humor, or anecdote to sections that don't already have them.
-- Do not trim accurate specific details — product names, job titles, publication citations — in the name of brevity.
-- The "direct first person" rule does not apply to step commands — they are second-person imperative by convention. All other rules still apply.
+- Do not trim accurate specific details, such as product names, job titles, and publication citations, in the name of brevity.
+- The "direct first person" rule does not apply to step commands, which are second-person imperative by convention. All other rules still apply.
 
 ## Step 3: Final Vale check
 

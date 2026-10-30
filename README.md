@@ -4,10 +4,12 @@ A portfolio site built with Astro + Starlight to showcase technical writing and 
 
 ## What’s included
 
-- `src/content/docs/index.mdx` — homepage and portfolio overview
-- `src/content/docs/venu/` — VENU mobile app user guide with task flows, screenshots, and navigation descriptions
-- `.vale/` — Vale prose linter with custom Walton style rules
-- `src/content/docs/resume.mdx` — resume, experience, education, and technical skills
+- `src/content/docs/index.mdx`: homepage and portfolio overview
+- `src/content/docs/projects/`: the Work page that links the case studies
+- `src/content/docs/oracle/`: Oracle overview and the adapter finder case study
+- `src/content/docs/venu/`: VENU case study, user guide, and release notes
+- `src/content/docs/academia/`: academic and research writing
+- `.vale/`: Vale prose linter with custom Walton style rules
 
 ## Project structure
 
