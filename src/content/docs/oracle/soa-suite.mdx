@@ -1,10 +1,10 @@
 ---
 title: 'Case Study: Maintaining the Oracle SOA Suite Documentation'
-description: How I repair, modernize, and maintain a documentation library that spans five products and many releases.
+description: How I find the shared causes behind documentation defects and fix them once, across a library that spans five products and many releases.
 ---
 
 **Role:** User assistance developer ·
-**Scope:** Link audit (24 broken links), reused-content repair, release modernization, triage, maintenance planning ·
+**Scope:** Reused-content repair, link audit (24 broken links), release modernization, triage ·
 **Tools:** DITA XML, bookmaps, issue tracker
 
 ## The problem
@@ -23,40 +23,46 @@ works.
 
 ## The solution
 
-I addressed this in four areas: **links and navigation**, **reused content**,
-**outdated procedures**, and **the maintenance process** itself. For every fix,
-I establish what the reader is trying to do, keep what is still valid, and make
-the smallest complete correction the evidence supports.
+I addressed this in four areas: **reused content**, **links**, **outdated
+procedures**, and **triage**. For every fix, I establish what the reader is
+trying to do, keep what is still valid, and make the smallest complete
+correction the evidence supports.
 
-### 1. Repairing links and navigation
+### 1. Fixing shared causes instead of symptoms
 
-I repaired navigation across the upgrade, administration, and development
-documentation: backup and recovery references, troubleshooting links, missing
-administration links, and cross-references that resolved to the wrong release.
+The library reuses topics across publications, so one defect in a source topic
+shows up everywhere that topic appears.
 
-For the SOA Suite on Kubernetes documentation, I ran a book-wide link audit. It
-found **24 broken links across 13 pages**. I gave each one a working
-destination and descriptive link text. While I was in those topics, I cleaned
-up list, step, and semantic markup and kept existing topic identifiers intact.
+In the
+[SOA Suite and Business Process Management upgrade documentation](https://docs.oracle.com/en/middleware/fusion-middleware/14.1.2/fupss/upgrading-soa-suite-and-business-process-management.html),
+readers saw missing notes, malformed formatting, and step lists that didn't
+display as written. Each looked like a separate formatting problem. I traced
+all of them to DITA content references that the publication no longer
+resolved. I investigated the source dependencies, updated the bookmap,
+restructured the XML, and tested the output. One repair fixed every symptom.
 
-I verify the rebuilt output, not only the source. That means opening each
-destination and checking that its anchor lands on the right content.
+Two reported problems with custom XPath classes in the upgrade instructions had
+the same shape. Both came from one reused topic, so one correction fixed both
+publications.
 
-### 2. Fixing shared causes in reused content
+Reuse also affects links. A cross-reference that looks correct in source can
+resolve to the wrong release in one publication. I fixed those by tracing how
+the source topic, the publication, and the generated link fit together, in
+places such as backup and recovery references and
+[Troubleshooting the Upgrade](https://docs.oracle.com/en/middleware/fusion-middleware/14.1.2/fupss/troubleshooting-upgrade.html).
 
-The library reuses topics across publications. A defect in one source topic
-shows up everywhere that topic appears, and a link that looks correct in source
-can resolve somewhere unexpected in one publication.
+### 2. Auditing every link in a book
 
-In the SOA and BPM upgrade material, readers saw missing notes, malformed
-formatting, and broken step lists. They looked like separate formatting
-problems. All of them traced back to DITA content references that the
-publication no longer resolved. I investigated the source dependencies, updated
-the bookmap, restructured the XML, and tested the output. One repair fixed the
-defects across the upgrade documentation.
+For the SOA Suite on Kubernetes documentation, I audited every link in the
+book. The audit found **24 broken links across 13 pages**, including topics
+such as
+[Prepare the environment for Oracle SOA Suite domains](https://docs.oracle.com/en/middleware/soa-suite/soa/14.1.2/soakn/prepare-environment-oracle-soa-suite-domains.html).
 
-The same thinking applied to two reported problems with custom XPath classes.
-Both came from one reused topic, so one correction fixed both publications.
+I gave each link a working destination and descriptive link text. While I was
+in those topics, I cleaned up list, step, and semantic markup and kept topic
+identifiers intact, so existing links into the book still work. I check the
+rebuilt output, not only the source: each destination has to load, and each
+anchor has to land on the right content.
 
 ### 3. Modernizing outdated procedures
 
@@ -67,42 +73,35 @@ environment.
 
 These updates vary in size. Renaming a console is an editorial change. A
 procedure that follows a different navigation tree needs technical validation.
-For anything that changes what an administrator does to a production system, I
-narrow the report to a question I can answer: which release and configuration
-are affected, which step fails, and what evidence supports the correction.
+For any change to what an administrator does on a production system, I narrow
+the report to a question I can answer: which release and configuration are
+affected, which step fails, and what evidence supports the correction.
 
-I also replaced duplicated Maven setup instructions with a link to the
-canonical installation guidance, and turned engineering handoff material for
-SOA Suite on Marketplace into customer-facing topics.
+The Maven documentation repeated installation steps that readers had to
+reconcile with the main guide. I replaced them with a link to the canonical
+guidance in
+[Installing the Oracle SOA Suite Maven Plug-in](https://docs.oracle.com/en/middleware/soa-suite/soa/14.1.2/develop/installing-maven-plug.html),
+and corrected configuration paths in
+[How to Configure the Oracle SOA Suite Maven Plug-in](https://docs.oracle.com/en/middleware/soa-suite/soa/14.1.2/develop/how-configure-maven-plug.html).
 
-### 4. Running maintenance as a process
+### 4. Triaging before writing
 
 Not every report needs a content change. I check each one against the
 published documentation, merge duplicates, recognize fixes that are already
 live, and identify when another team owns the page. When a request concerned a
 public page owned by a website team, I routed it to that team and documented
-the path for future handoffs.
+the path for the next handoff.
 
-I plan the work with a weekday review that reconciles each assigned item with
-its latest evidence: technical decisions, review outcomes, dependencies, and
-deadlines. The plan groups related fixes into work blocks, orders them by due
-date, and flags quick wins. It holds a few rules that matter in documentation
-delivery:
-
-- A positive review doesn't mean the change is published.
-- A closed ticket doesn't mean a page outside my control has changed.
-- Missing deadlines and incomplete information get flagged, not guessed.
-
-I'm turning what I've learned into onboarding material, so the next writer
-starts with a map instead of a backlog.
+I track each fix from proposed wording through technical evidence, approval,
+and publication. An approved draft isn't a published change, and a closed
+ticket isn't proof that a page outside my control has changed.
 
 ## Results
 
+- **One repair, every symptom.** A single bookmap fix restored missing notes, formatting, and step lists across the SOA and BPM upgrade documentation.
 - **24 broken links fixed** across 13 pages of the Kubernetes documentation, each checked in the rebuilt output.
-- **Shared causes, single fixes.** One bookmap repair fixed missing notes, formatting, and steps across the upgrade documentation. One topic correction fixed two publications.
+- **One correction, two publications.** Fixing a reused topic resolved two separate reports.
 - **Less duplication.** Maven setup points to canonical installation guidance instead of repeating it.
-- **Clear tool guidance.** Readers can tell which WebLogic management tool applies to their environment.
-- **Work tracked to publication.** Nothing counts as done until the change is live.
 
 ## What's next
 
