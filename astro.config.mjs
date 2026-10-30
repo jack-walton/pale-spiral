@@ -86,6 +86,7 @@ export default defineConfig({
 					label: 'Oracle',
 					items: [
 						{ label: 'Oracle Overview', slug: 'oracle' },
+						{ label: 'SOA Suite', slug: 'oracle/soa-suite' },
 						{ label: 'Adapter Finder', slug: 'oracle/adapter-finder' },
 					],
 				},
